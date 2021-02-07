@@ -4,32 +4,47 @@ using UnityEngine;
 
 public class ChangeTime : MonoBehaviour
 {
-    Collider[] Affectables;
     public static Timeable.timeState LocalTimeState = Timeable.timeState.Present;
+    private bool called = false; 
+    Collider2D[] Affectables;
     // Start is called before the first frame update
     void Start()
     {
-         Affectables = Physics.OverlapSphere(GetComponent<Transform>().position, 1.5f);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.unscaledTime > 5 && !called)
+        {
+            called = true;
+            sendThemBack();
+        }
     }
 
     void sendThemBack()
     {
+        Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
+        var CircleCenter = GetComponent<Transform>().transform.position;
+        Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), 5f);
+
         int objects_affected = 0;
+
+        if (Affectables.Length != 0)
+        {
+            Debug.Log("WE GOT A LIVE ONE BOB!");
+        }
+       
 
         //Get the time state we want to change the radius to
         Timeable.timeState toChange = newTime();
 
         //Change the time state of all of the (affectable) objects in the radius
-        foreach (Collider collider in Affectables)
+        foreach (Collider2D collider in Affectables)
         {
             var iter = collider.gameObject.GetComponent<Timeable>();
-            if (!iter)
+            if (!iter || !iter.enabled)
             {
                 continue;
             }

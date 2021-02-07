@@ -6,9 +6,9 @@ public class Timeable : MonoBehaviour
 {
     // Start is called before the first frame update
     public enum timeState { Past, Present};
-    timeState currentTime = timeState.Present;
-    Sprite pastSprite;
-    Sprite presentSprite;
+    private timeState currentTime = timeState.Present;
+    public Sprite pastSprite;
+    public Sprite presentSprite;
 
     void Start()
     {
@@ -25,18 +25,24 @@ public class Timeable : MonoBehaviour
     //Should probably write more functions to change sprite, interactability/collider, etc.
     public void changeTime(timeState new_time)
     {
+        Debug.Log("We successfully called changeTime on this " + this + " object");
         if(currentTime == new_time){
+            Debug.Log("Time already set! No changes to be made to " + this + " sprite.");
             return;
         }
         else
         {
-            if(new_time == timeState.Present)
+            if (new_time == timeState.Present)
             {
                 currentTime = timeState.Past;
+                Debug.Log("Setting sprite to present!");
+                GetComponent<SpriteRenderer>().sprite = pastSprite;
             }
             else
             {
                 currentTime = timeState.Present;
+                Debug.Log("Setting sprite to past!");
+                GetComponent<SpriteRenderer>().sprite = presentSprite;
             }
         }
     }
