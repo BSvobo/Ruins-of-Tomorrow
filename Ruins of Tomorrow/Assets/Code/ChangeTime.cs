@@ -25,7 +25,7 @@ public class ChangeTime : MonoBehaviour
 
     void sendThemBack()
     {
-        Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
+       // Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
         var CircleCenter = GetComponent<Transform>().transform.position;
         Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), 5f);
 
@@ -33,7 +33,7 @@ public class ChangeTime : MonoBehaviour
 
         if (Affectables.Length != 0)
         {
-            Debug.Log("WE GOT A LIVE ONE BOB!");
+        //    Debug.Log("WE GOT A LIVE ONE BOB!");
         }
        
 
