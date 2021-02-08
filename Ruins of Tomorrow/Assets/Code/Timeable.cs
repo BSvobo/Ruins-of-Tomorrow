@@ -12,7 +12,6 @@ public class Timeable : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
