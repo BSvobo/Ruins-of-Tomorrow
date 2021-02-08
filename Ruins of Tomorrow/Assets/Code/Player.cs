@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,6 +18,8 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
+
+        Screen.SetResolution(1280, 720, false);
     }
 
     // Update is called once per frame
