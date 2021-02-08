@@ -31,16 +31,16 @@ public class Timeable : MonoBehaviour
         }
         else
         {
-            if (new_time == timeState.Present)
+            if (new_time == timeState.Past)
             {
                 currentTime = timeState.Past;
-                Debug.Log("Setting sprite to present!");
+                Debug.Log("Setting sprite to past!");
                 GetComponent<SpriteRenderer>().sprite = pastSprite;
             }
             else
             {
                 currentTime = timeState.Present;
-                Debug.Log("Setting sprite to past!");
+                Debug.Log("Setting sprite to present!");
                 GetComponent<SpriteRenderer>().sprite = presentSprite;
             }
         }
