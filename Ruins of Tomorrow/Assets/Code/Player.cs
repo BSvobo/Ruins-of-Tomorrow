@@ -13,11 +13,14 @@ public class Player : MonoBehaviour
     
     enum direction {left, right, up, down};
     private direction _dir;
+
+    private bool moving;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
+        moving = false;
 
         Screen.SetResolution(1280, 720, false);
     }
@@ -30,93 +33,81 @@ public class Player : MonoBehaviour
 
     void HandleInputs()
     {
-        if (Input.GetKeyDown("left"))
-        {
-            _dir = direction.left;
-            print("left");
-        }
-        else if (Input.GetKeyDown("right"))
-        {
-            _dir = direction.right;
-            print("right");
-        }
-        else if (Input.GetKeyDown("up"))
-        {
-            _dir = direction.up;
-            print("up");
-        }
-        else if (Input.GetKeyDown("down"))
-        {
-            _dir = direction.down;
-            print("down");
-        }
-        else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical")!=0)
+        if (moving)
         {
             Move();
         }
         else
         {
-            _rb.velocity = new Vector2(0,0);
+          SetDirection();
         }
     }
 
+    void SetDirection()
+    {
+        if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
+        {
+            _dir = direction.left;
+            print("left");
+            moving = true;
+        }
+        else if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
+        {
+            _dir = direction.right;
+            print("right");
+            moving = true;
+        }
+        else if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
+        {
+            _dir = direction.up;
+            print("up");
+            moving = true;
+        }
+        else if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
+        {
+            _dir = direction.down;
+            print("down");
+            moving = true;
+        }
+    }
     void Move()
     {
         if (_dir == direction.left)
         {
             _rb.velocity = new Vector2(-1,0) *speed;
+            if (Input.GetKeyUp("left") || Input.GetKeyUp("a"))
+            {
+                moving = false;
+                _rb.velocity = Vector2.zero;
+            }
         }
         else if (_dir == direction.right)
         {
             _rb.velocity = new Vector2(1,0) *speed;
+            if (Input.GetKeyUp("right") || Input.GetKeyUp("d"))
+            {
+                moving = false;
+                _rb.velocity = Vector2.zero;
+            }
         }
         else if (_dir == direction.up)
         {
             _rb.velocity = new Vector2(0,1) *speed;
+            if (Input.GetKeyUp("up") || Input.GetKeyUp("w"))
+            {
+                moving = false;
+                _rb.velocity = Vector2.zero;
+            }
         }
         else if (_dir == direction.down)
         {
             _rb.velocity = new Vector2(0, -1) *speed;
+            if (Input.GetKeyUp("down") || Input.GetKeyUp("s"))
+            {
+                moving = false;
+                _rb.velocity = Vector2.zero;
+            }
         }
     }
-    /*void HandleInputs()
-    {
-        if (!isMoving)
-        {
-            if (Input.GetKeyDown("left"))
-            {
-                 _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), 0) * speed;
-                 isMoving = true;
-            } 
-            else if (Input.GetKeyDown("right"))
-            {
-                _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), 0) * speed;
-                isMoving = true;
-            }
-            else if (Input.GetKeyDown("up"))
-            {
-                _rb.velocity = new Vector2(0, Input.GetAxisRaw("Vertical")) * speed;
-                isMoving = true; 
-            } 
-            else if(Input.GetKeyDown("down"))
-            {
-                _rb.velocity = new Vector2(0, Input.GetAxisRaw("Vertical")) * speed;
-                isMoving = true;
-            }
-        }
-        else
-        {
-            if (Input.GetKeyUp("left") || Input.GetKeyUp("right"))
-            {
-                _rb.velocity = new Vector2(0,_rb.velocity.y);
-                isMoving = false;
-            } 
-            else if(Input.GetKeyUp("up") || Input.GetKeyUp("down"))
-            {
-                _rb.velocity = new Vector2(_rb.velocity.x, 0);
-                isMoving = false;
-            }
-        }
-    }*/
 }
 
