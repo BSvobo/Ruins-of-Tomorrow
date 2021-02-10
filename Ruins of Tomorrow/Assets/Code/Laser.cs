@@ -10,19 +10,20 @@ public class Laser : MonoBehaviour
     private Vector3 gun;
     public Vector2 dir;
     private Timeable _timeable;
+    private float i;
 
     // Start is called before the first frame update
     void Start()
     {
         l = gameObject.GetComponent<LineRenderer>();
         gun = transform.position;
+        _timeable = gameObject.GetComponent<Timeable>();
+        i = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _timeable = gameObject.GetComponent<Timeable>();
-        
         if (_timeable.getTimeState() == Timeable.timeState.Past)
         {
             LaserRender();
@@ -47,7 +48,6 @@ public class Laser : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
     }
     
     
