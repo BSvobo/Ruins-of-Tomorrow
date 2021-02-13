@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Laser
   - Crate
+  - Pit
   layers:
   - Default
   - TransparentFX

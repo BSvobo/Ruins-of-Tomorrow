@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7298221495358646833}
   m_Layer: 8
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,8 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844f2d27c00a0204c8626b7f2508fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pastSprite: {fileID: 21300000, guid: 2fa6ceeed4dfb4b58a5293e64719ca56, type: 3}
-  presentSprite: {fileID: 21300000, guid: 2fa6ceeed4dfb4b58a5293e64719ca56, type: 3}
+  currentTime: 1
+  pastObject: {fileID: 4639583993436121844, guid: 2d02395c5a320d647a72734892ae8908,
+    type: 3}
+  presentObject: {fileID: 7298221495358646832}
 --- !u!61 &7298221495358646833
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0004940033, y: 0.0019733906}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -233,5 +235,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1.0040169, y: 1.0033298}
   m_EdgeRadius: 0

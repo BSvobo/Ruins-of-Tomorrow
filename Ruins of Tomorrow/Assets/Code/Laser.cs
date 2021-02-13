@@ -24,7 +24,7 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_timeable.getTimeState() == Timeable.timeState.Past)
+        if (_timeable.GetTimeState() == Timeable.timeState.Past)
         {
             LaserRender();
         }
@@ -47,6 +47,10 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag("Player"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (hit.collider.CompareTag("Crate"))
+        {
+            Destroy(hit.collider.gameObject);
         }
     }
     

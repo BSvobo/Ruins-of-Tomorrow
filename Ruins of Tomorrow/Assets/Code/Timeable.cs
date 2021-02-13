@@ -6,9 +6,12 @@ public class Timeable : MonoBehaviour
 {
     // Start is called before the first frame update
     public enum timeState { Past, Present};
-    private timeState currentTime = timeState.Present;
-    public Sprite pastSprite;
-    public Sprite presentSprite;
+    public timeState currentTime;
+
+    public GameObject pastObject;
+    public GameObject presentObject;
+
+    private Vector3 position;
 
     void Start()
     {
@@ -24,29 +27,35 @@ public class Timeable : MonoBehaviour
     //Should probably write more functions to change sprite, interactability/collider, etc.
     public void changeTime(timeState new_time)
     {
-        Debug.Log("We successfully called changeTime on this " + this + " object");
         if(currentTime == new_time){
-            Debug.Log("Time already set! No changes to be made to " + this + " sprite.");
+            Debug.Log("Time already set! No changes to be made to " + this + " object.");
             return;
         }
         else
         {
+            position = GetComponent<Transform>().position;
+
             if (new_time == timeState.Past)
             {
                 currentTime = timeState.Past;
-                Debug.Log("Setting sprite to past!");
-                GetComponent<SpriteRenderer>().sprite = pastSprite;
+                Debug.Log("Setting this " + this + " object to past!");
+                Destroy(gameObject);
+                var newobj = Instantiate(pastObject);
+                newobj.GetComponent<Transform>().position = position;
+
             }
             else
             {
                 currentTime = timeState.Present;
-                Debug.Log("Setting sprite to present!");
-                GetComponent<SpriteRenderer>().sprite = presentSprite;
+                Debug.Log("Setting this " + this + "object to present!");
+                Destroy(gameObject);
+                var newobj = Instantiate(presentObject);
+                newobj.GetComponent<Transform>().position = position;
             }
         }
     }
 
-    public timeState getTimeState()
+    public timeState GetTimeState()
     {
         return currentTime;
     }
