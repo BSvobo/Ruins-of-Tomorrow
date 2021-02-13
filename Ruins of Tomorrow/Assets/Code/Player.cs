@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D _rb;
     public float speed;
-    
+    private Timeable _timeable;
+
     enum direction {left, right, up, down};
     private direction _dir;
 
@@ -108,6 +109,46 @@ public class Player : MonoBehaviour
                 _rb.velocity = Vector2.zero;
             }
         }
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Crate")
+        {
+            Debug.Log("The player collided with the crate");
+            if (_dir == direction.left)
+            {
+                collision.rigidbody.velocity = new Vector2(-1, 0) * speed;
+                Debug.Log("The crate is moving left");
+            }
+            else if (_dir == direction.right)
+            {
+                collision.rigidbody.velocity = new Vector2(1, 0) * speed;
+                Debug.Log("The crate is moving right");
+            }
+            else if (_dir == direction.up)
+            {
+                collision.rigidbody.velocity = new Vector2(0, 1) * speed;
+                Debug.Log("The crate is moving up");
+            }
+            else if (_dir == direction.down)
+            {
+                collision.rigidbody.velocity = new Vector2(0, -1) * speed;
+                Debug.Log("The crate is moving down");
+            }
+
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Crate")
+        {
+            collision.rigidbody.velocity = Vector2.zero;
+            Debug.Log("Resetting the velocity of the crate");
+        }
+
     }
 }
 
