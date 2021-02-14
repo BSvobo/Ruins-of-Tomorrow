@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6304609643748252350}
   m_Layer: 8
   m_Name: TimeShifter Present
-  m_TagString: Untagged
+  m_TagString: Clock Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 1
-  pastSprite: {fileID: 21300000, guid: a4f5e23da54c477448daeff2732f5866, type: 3}
-  presentSprite: {fileID: 21300000, guid: c18ece60af7efde4cb24ec1f7d261f33, type: 3}
   pastObject: {fileID: 7505070261850278061, guid: 81e92f067535da9478df94039832d070,
     type: 3}
   presentObject: {fileID: 8634640898721087543}

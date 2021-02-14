@@ -48,10 +48,10 @@ public class Laser : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if (hit.collider.CompareTag("Crate"))
+        /* else if (hit.collider.CompareTag("Crate"))
         {
             Destroy(hit.collider.gameObject);
-        }
+        }*/
     }
     
     

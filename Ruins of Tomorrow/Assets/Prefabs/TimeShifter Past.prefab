@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeShifter Past
       objectReference: {fileID: 0}
+    - target: {fileID: 8634640898721087543, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_TagString
+      value: Clock Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
 --- !u!1 &7505070261850278061 stripped

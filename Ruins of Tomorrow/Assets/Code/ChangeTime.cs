@@ -16,16 +16,16 @@ public class ChangeTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.unscaledTime > 5 && !called && LocalTimeState == Timeable.timeState.Present)
+        /*if(Time.unscaledTime > 5 && !called && LocalTimeState == Timeable.timeState.Present)
         {
             called = true;
             sendThemBack();
-        }
+        }*/
     }
 
-    void sendThemBack()
+    public void sendThemBack()
     {
-       // Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
+        Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
         var CircleCenter = GetComponent<Transform>().transform.position;
         Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), 5f);
         Debug.Log("Beginnging to sendThemBack, number of objects to change is " + Affectables.Length);

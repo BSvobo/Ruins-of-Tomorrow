@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904e20bdc3c5e4a958c4a006979b911d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
 --- !u!61 &756165149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4163,8 +4163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 1
-  pastSprite: {fileID: 21300000, guid: 8288ef8571af8bb40afd6208371bdae0, type: 3}
-  presentSprite: {fileID: 21300000, guid: 0e07d97866a5f364683a74e6c2bd2f6f, type: 3}
   pastObject: {fileID: 0}
   presentObject: {fileID: 0}
 --- !u!212 &2121973045

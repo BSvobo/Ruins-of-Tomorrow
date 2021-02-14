@@ -28,8 +28,12 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-       HandleInputs();
+    { 
+        if (Input.GetKeyDown("space"))
+        {
+            ClockRock();
+        }
+        HandleInputs();
     }
 
     void HandleInputs()
@@ -49,25 +53,25 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
         {
             _dir = direction.left;
-            print("left");
+           // print("left");
             moving = true;
         }
         else if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
         {
             _dir = direction.right;
-            print("right");
+           // print("right");
             moving = true;
         }
         else if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
         {
             _dir = direction.up;
-            print("up");
+            //print("up");
             moving = true;
         }
         else if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
         {
             _dir = direction.down;
-            print("down");
+            //print("down");
             moving = true;
         }
     }
@@ -149,6 +153,34 @@ public class Player : MonoBehaviour
             Debug.Log("Resetting the velocity of the crate");
         }
 
+    }
+
+    void ClockRock()
+    {
+        Vector2 cast = new Vector2(1,0);
+        if (_dir == direction.left)
+        {
+            cast = new Vector2(-1, 0);
+        }
+        else if (_dir == direction.right)
+        {
+            cast = new Vector2(1, 0);
+        }
+        else if (_dir == direction.up)
+        {
+            cast = new Vector2(0, 1);
+        }
+        else if (_dir == direction.down)
+        {
+            cast = new Vector2(0, -1);
+        }
+        
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position,cast,.5f);
+        RaycastHit2D hit = hits[1];
+        if (hit.collider.CompareTag("Clock Rock"))
+        {
+            hit.collider.GetComponent<ChangeTime>().sendThemBack();
+        }
     }
 }
 
