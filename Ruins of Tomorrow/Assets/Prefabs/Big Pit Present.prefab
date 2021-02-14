@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7349803578839270949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.09, y: -3.11, z: -1.9257812}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 1
-  pastSprite: {fileID: 0}
-  presentSprite: {fileID: 0}
   pastObject: {fileID: 1771541559468563876, guid: 08b73d8842b63734f801c9d25097690e,
     type: 3}
   presentObject: {fileID: 7349803578839270949}
