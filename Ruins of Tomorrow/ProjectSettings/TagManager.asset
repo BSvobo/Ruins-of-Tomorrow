@@ -8,6 +8,7 @@ TagManager:
   - Crate
   - Pit
   - Clock Rock
+  - Crate Pull
   layers:
   - Default
   - TransparentFX

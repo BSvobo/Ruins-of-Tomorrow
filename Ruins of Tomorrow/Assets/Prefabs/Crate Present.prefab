@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1746611468763361681}
   - component: {fileID: 1746611468763361682}
   - component: {fileID: -4231872494027706588}
-  - component: {fileID: 4766190273170862300}
   - component: {fileID: 9213539650985874609}
   - component: {fileID: 2907118616181853335}
   m_Layer: 8
@@ -101,19 +100,6 @@ MonoBehaviour:
   pastObject: {fileID: 7906856088133504096, guid: 563b5e57b42f2564c9e13c8a7bc3e94c,
     type: 3}
   presentObject: {fileID: 1746611468763361683}
---- !u!114 &4766190273170862300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746611468763361683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d800bd315151c6429fa45bd7e5fee3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 2907118616181853335}
 --- !u!60 &9213539650985874609
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +110,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -190,7 +176,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746611468763361683}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -202,4 +188,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

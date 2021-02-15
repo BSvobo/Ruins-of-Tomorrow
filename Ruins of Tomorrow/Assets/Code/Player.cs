@@ -149,11 +149,28 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Crate")
         {
-            collision.rigidbody.velocity = Vector2.zero;
-            Debug.Log("Resetting the velocity of the crate");
+            if (Input.GetKey(KeyCode.E))
+            {
+                //collision.rigidbody.velocity = _rb.velocity;
+            }
+            else
+            {
+                collision.rigidbody.velocity = Vector2.zero;
+                Debug.Log("Resetting the velocity of the crate");
+            }
         }
 
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("Connecting the crate to the player");
+            collision.rigidbody.velocity = _rb.velocity;
+        }
+    }
+
 
     void ClockRock()
     {
