@@ -2,7 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ChangeTime
+    - Crate
+    - DeepPit
     - Laser
+    - LevelEnd
     - Player
     - Timeable
     Unity.2D.Animation.Editor.dll:
@@ -14,7 +17,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
-    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -36,7 +38,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
+    - Class: 60
+      Script: {instanceID: 0}
     - Class: 61
+      Script: {instanceID: 0}
+    - Class: 68
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -45,13 +51,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 590}
     - Class: 114
-      Script: {instanceID: 12040}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 12690}
+      Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 13994}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 14396}
+      Script: {instanceID: 13586}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14154}
+    - Class: 114
+      Script: {instanceID: 14430}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -63,6 +75,10 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 233
+      Script: {instanceID: 0}
+    - Class: 19719996
       Script: {instanceID: 0}
     - Class: 156049354
       Script: {instanceID: 0}
@@ -253,10 +269,16 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 382e774f39f2f735bfb44066fb59eceb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChangeTime
+  - hash:
+      serializedVersion: 2
+      Hash: d58e44ca8085eb4df7c714c2b10e383e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crate
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -325,7 +347,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: cb10111923ac5e1d76414d6640a3a89e
+      Hash: 17de0bc0428beaf208896a56470fa748
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Timeable
@@ -433,6 +455,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelEnd
+  - hash:
+      serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -473,6 +501,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeepPit
   - hash:
       serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a
@@ -578,4 +612,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/annika/Documents/GitHub/Ruins-of-Tomorrow/Builds/ChronosStudios.app
+  playerPath: C:/Users/Braden/Documents/GitHub/Ruins-of-Tomorrow/Ruins of Tomorrow/Builds/RuinsofTomorrow.app

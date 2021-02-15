@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeTime : MonoBehaviour
 {
     public Timeable.timeState LocalTimeState;
+    public int CastRadius;
     private bool called = false; 
     Collider2D[] Affectables;
     // Start is called before the first frame update
@@ -25,10 +26,14 @@ public class ChangeTime : MonoBehaviour
 
     public void sendThemBack()
     {
-        Debug.Log("We called sendThemBack() at " + Time.unscaledTime);
         var CircleCenter = GetComponent<Transform>().transform.position;
-        Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), 5f);
-        Debug.Log("Beginnging to sendThemBack, number of objects to change is " + Affectables.Length);
+        Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), CastRadius);
+        Debug.Log("We called sendThemBack() at " + Time.unscaledTime + "\r\nNumber of objects to change is " + Affectables.Length);
+
+        foreach (Collider2D changing in Affectables)
+        {
+            Debug.Log("Changing object " + changing.gameObject);
+        }
 
         int objects_affected = 0;
 
@@ -38,7 +43,7 @@ public class ChangeTime : MonoBehaviour
         //Change the time state of all of the (affectable) objects in the radius
         foreach (Collider2D collider in Affectables)
         {
-            var iter = collider.gameObject.GetComponent<Timeable>();
+            Timeable iter = collider.gameObject.GetComponent<Timeable>();
             if (!iter || !iter.enabled)
             {
                 continue;

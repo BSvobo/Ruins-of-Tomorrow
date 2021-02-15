@@ -114,6 +114,11 @@ PrefabInstance:
       propertyPath: LocalTimeState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634640898721087542, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: CastRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8634640898721087543, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: m_Name

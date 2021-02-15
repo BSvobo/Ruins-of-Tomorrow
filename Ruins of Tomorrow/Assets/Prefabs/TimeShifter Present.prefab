@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocalTimeState: 1
+  CastRadius: 3
 --- !u!114 &8634640898721087538
 MonoBehaviour:
   m_ObjectHideFlags: 0
