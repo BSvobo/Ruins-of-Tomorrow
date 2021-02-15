@@ -38,84 +38,31 @@ public class Player : MonoBehaviour
 
     void HandleInputs()
     {
-        if (moving)
+        if (Input.GetKey("left") || Input.GetKey("a"))
         {
-            Move();
+            _rb.velocity = Vector2.left *speed;
+            _dir = direction.left;
+        }
+        else if (Input.GetKey("right") || Input.GetKey("d"))
+        {
+            _rb.velocity = Vector2.right *speed;
+            _dir = direction.right;
+        }
+        else if (Input.GetKey("up") || Input.GetKey("w"))
+        {
+            _rb.velocity = Vector2.up *speed;
+            _dir = direction.up;
+        }
+        else if (Input.GetKey("down") || Input.GetKey("s"))
+        {
+            _rb.velocity = Vector2.down *speed;
+            _dir = direction.down;
         }
         else
         {
-          SetDirection();
+            _rb.velocity = Vector2.zero;
         }
     }
-
-    void SetDirection()
-    {
-        if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
-        {
-            _dir = direction.left;
-           // print("left");
-            moving = true;
-        }
-        else if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
-        {
-            _dir = direction.right;
-           // print("right");
-            moving = true;
-        }
-        else if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
-        {
-            _dir = direction.up;
-            //print("up");
-            moving = true;
-        }
-        else if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
-        {
-            _dir = direction.down;
-            //print("down");
-            moving = true;
-        }
-    }
-    void Move()
-    {
-        if (_dir == direction.left)
-        {
-            _rb.velocity = new Vector2(-1,0) *speed;
-            if (Input.GetKeyUp("left") || Input.GetKeyUp("a"))
-            {
-                moving = false;
-                _rb.velocity = Vector2.zero;
-            }
-        }
-        else if (_dir == direction.right)
-        {
-            _rb.velocity = new Vector2(1,0) *speed;
-            if (Input.GetKeyUp("right") || Input.GetKeyUp("d"))
-            {
-                moving = false;
-                _rb.velocity = Vector2.zero;
-            }
-        }
-        else if (_dir == direction.up)
-        {
-            _rb.velocity = new Vector2(0,1) *speed;
-            if (Input.GetKeyUp("up") || Input.GetKeyUp("w"))
-            {
-                moving = false;
-                _rb.velocity = Vector2.zero;
-            }
-        }
-        else if (_dir == direction.down)
-        {
-            _rb.velocity = new Vector2(0, -1) *speed;
-            if (Input.GetKeyUp("down") || Input.GetKeyUp("s"))
-            {
-                moving = false;
-                _rb.velocity = Vector2.zero;
-            }
-        }
-    }
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Crate")

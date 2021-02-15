@@ -9,6 +9,7 @@
           <e p="Crate.cs" t="Include" />
           <e p="DeepPit.cs" t="Include" />
           <e p="Laser.cs" t="Include" />
+          <e p="LevelEnd.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Timeable.cs" t="Include" />
         </e>
