@@ -70,22 +70,22 @@ public class Player : MonoBehaviour
             Debug.Log("The player collided with the crate");
             if (_dir == direction.left)
             {
-                collision.rigidbody.velocity = new Vector2(-1, 0) * speed;
+                collision.rigidbody.velocity = new Vector2(-1, 0) * speed *.5f;
                 Debug.Log("The crate is moving left");
             }
             else if (_dir == direction.right)
             {
-                collision.rigidbody.velocity = new Vector2(1, 0) * speed;
+                collision.rigidbody.velocity = new Vector2(1, 0) * speed *.5f;
                 Debug.Log("The crate is moving right");
             }
             else if (_dir == direction.up)
             {
-                collision.rigidbody.velocity = new Vector2(0, 1) * speed;
+                collision.rigidbody.velocity = new Vector2(0, 1) * speed *.5f;
                 Debug.Log("The crate is moving up");
             }
             else if (_dir == direction.down)
             {
-                collision.rigidbody.velocity = new Vector2(0, -1) * speed;
+                collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
                 Debug.Log("The crate is moving down");
             }
 
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
         {
             Debug.Log("Connecting the crate to the player");
-            collision.rigidbody.velocity = _rb.velocity;
+            _rb.velocity = _rb.velocity * .5f;
         }
     }
 
