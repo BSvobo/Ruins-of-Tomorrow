@@ -42,7 +42,6 @@ public class Timeable : MonoBehaviour
                 Destroy(gameObject);
                 var newobj = Instantiate(pastObject);
                 newobj.GetComponent<Transform>().position = position;
-
             }
             else
             {

@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ChangeTime : MonoBehaviour
 {
     public Timeable.timeState LocalTimeState;
     public int CastRadius;
-    private bool called = false; 
+    //private bool called = false; 
     Collider2D[] Affectables;
+
     // Start is called before the first frame update
     void Start()
     {
-       
     }
 
     // Update is called once per frame

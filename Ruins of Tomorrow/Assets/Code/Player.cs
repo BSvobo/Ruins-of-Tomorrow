@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
     enum direction {left, right, up, down};
     private direction _dir;
 
-    private bool moving;
+    //private bool moving;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
-        moving = false;
+        //moving = false;
 
         Screen.SetResolution(1280, 720, false);
     }
