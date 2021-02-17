@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
-        //moving = false;
         Canvas = GameObject.Find("Canvas").transform;
 
         Screen.SetResolution(1280, 720, false);
@@ -151,10 +150,13 @@ public class Player : MonoBehaviour
         }
         
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position,cast,.5f);
-        RaycastHit2D hit = hits[1];
-        if (hit.collider.CompareTag("Clock Rock"))
+        if (hits.Length > 1)
         {
-            hit.collider.GetComponent<ChangeTime>().sendThemBack();
+            RaycastHit2D hit = hits[1];
+            if (hit.collider.CompareTag("Clock Rock"))
+            {
+                hit.collider.GetComponent<ChangeTime>().sendThemBack();
+            }
         }
     }
 }
