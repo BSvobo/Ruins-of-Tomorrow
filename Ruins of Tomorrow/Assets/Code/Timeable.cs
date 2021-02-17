@@ -41,18 +41,18 @@ public class Timeable : MonoBehaviour
             if (new_time == timeState.Past)
             {
                 currentTime = timeState.Past;
-                Debug.Log("Setting this " + this + " object to past!");
+                //Debug.Log("Setting this " + this + " object to past!");
                 if (laser)
                 {
                     laserdirection = laser.dir;
-                    Destroy(gameObject);
+                    Destroy(this.gameObject);
                     var newobj = Instantiate(pastObject);
                     newobj.GetComponent<Laser>().dir = laserdirection;
                     newobj.GetComponent<Transform>().position = position;
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    Destroy(this.gameObject);
                     var newobj = Instantiate(pastObject);
                     newobj.GetComponent<Transform>().position = position;
                 }
@@ -60,18 +60,18 @@ public class Timeable : MonoBehaviour
             else
             {
                 currentTime = timeState.Present;
-                Debug.Log("Setting this " + this + "object to present!");
+                //Debug.Log("Setting this " + this + "object to present!");
                 if (laser)
                 {
                     laserdirection = laser.dir;
-                    Destroy(gameObject);
+                    Destroy(this.gameObject);
                     var newobj = Instantiate(presentObject);
                     newobj.GetComponent<Laser>().dir = laserdirection;
                     newobj.GetComponent<Transform>().position = position;
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    Destroy(this.gameObject);
                     var newobj = Instantiate(presentObject);
                     newobj.GetComponent<Transform>().position = position;
                 }

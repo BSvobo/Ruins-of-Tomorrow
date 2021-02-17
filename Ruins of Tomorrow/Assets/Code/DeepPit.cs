@@ -21,7 +21,17 @@ public class DeepPit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            if (this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
+            {
+                Debug.Log("Player entered collider of pit with bridge, ignoring");
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+                return;
+            }
+            else
+            {
+                Debug.Log("Player collided with pit, resetting");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            }
         }
     }
 }

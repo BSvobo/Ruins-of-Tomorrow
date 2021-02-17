@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1612300263806805334, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612300263806805334, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.62
+      objectReference: {fileID: 0}
     - target: {fileID: 8634640898721087536, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,12 +97,12 @@ PrefabInstance:
         type: 3}
       propertyPath: presentCollider
       value: 
-      objectReference: {fileID: 5227918944335450660}
+      objectReference: {fileID: 0}
     - target: {fileID: 8634640898721087538, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: pastCollider
       value: 
-      objectReference: {fileID: 5227918944335450660}
+      objectReference: {fileID: 0}
     - target: {fileID: 8634640898721087538, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: presentObject
@@ -129,17 +139,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Clock Rock
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6304609643748252350, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
 --- !u!1 &7505070261850278061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8634640898721087543, guid: 2a25f9270905443ea809f15af19ced42,
-    type: 3}
-  m_PrefabInstance: {fileID: 2302242682291587226}
-  m_PrefabAsset: {fileID: 0}
---- !u!68 &5227918944335450660 stripped
-EdgeCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6304609643748252350, guid: 2a25f9270905443ea809f15af19ced42,
     type: 3}
   m_PrefabInstance: {fileID: 2302242682291587226}
   m_PrefabAsset: {fileID: 0}

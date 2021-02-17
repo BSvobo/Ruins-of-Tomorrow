@@ -29,11 +29,11 @@ public class ChangeTime : MonoBehaviour
     {
         var CircleCenter = GetComponent<Transform>().transform.position;
         Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), CastRadius);
-        Debug.Log("We called sendThemBack() at " + Time.unscaledTime + "\r\nNumber of objects to change is " + Affectables.Length);
+        Debug.Log("We called sendThemBack() at " + Time.unscaledTime + "\r\nNumber of objects within clock rock radius is " + Affectables.Length);
 
         foreach (Collider2D changing in Affectables)
         {
-            Debug.Log("Changing object " + changing.gameObject);
+            Debug.Log("Object within radius of Clock Rock: " + changing.gameObject);
         }
 
         int objects_affected = 0;
@@ -45,7 +45,7 @@ public class ChangeTime : MonoBehaviour
         foreach (Collider2D collider in Affectables)
         {
             Timeable iter = collider.gameObject.GetComponent<Timeable>();
-            if (!iter || !iter.enabled)
+            if (iter == null || iter.enabled == false)
             {
                 continue;
             }
@@ -55,8 +55,8 @@ public class ChangeTime : MonoBehaviour
                 iter.changeTime(toChange);
             }
         }
-
         LocalTimeState = toChange;
+        Debug.Log("Finished sendThemBack. Total number of objects changed: " + objects_affected);
     }
 
     Timeable.timeState newTime()

@@ -21,8 +21,17 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Debug.Log("Level Completed Succesfully: Loading Next Level");
+            Scene activeScene = SceneManager.GetActiveScene();
+            if (SceneManager.sceneCountInBuildSettings == activeScene.buildIndex+1)
+            {
+                Debug.Log("Congratulations! You delved all the way into the ruins!");
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(activeScene.buildIndex + 1);
+                Debug.Log("Level " + (activeScene.buildIndex) + " Completed Succesfully: Loading Next Level");
+            }
         }
     }
 }
