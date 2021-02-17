@@ -61,7 +61,7 @@ public class Crate : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("IN PULL RANGE");
+            //Debug.Log("IN PULL RANGE");
             if (Input.GetKey(KeyCode.E))
             {
                 _rb.velocity = col.attachedRigidbody.velocity *.9f;

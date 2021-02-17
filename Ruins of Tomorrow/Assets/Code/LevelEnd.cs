@@ -22,7 +22,7 @@ public class LevelEnd : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Debug.Log("Level Completed Succesfully: Resetting The Scene");
+            Debug.Log("Level Completed Succesfully: Loading Next Level");
         }
     }
 }

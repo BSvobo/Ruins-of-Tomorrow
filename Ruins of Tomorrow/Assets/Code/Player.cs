@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     public float speed;
     private Timeable _timeable;
 
+    public static bool inPauseMenu = false;
+    public Object _pauseMenu;
+    public static Transform Canvas;
+
     enum direction {left, right, up, down};
     private direction _dir;
 
@@ -22,6 +26,7 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
         //moving = false;
+        Canvas = GameObject.Find("Canvas").transform;
 
         Screen.SetResolution(1280, 720, false);
     }
@@ -34,6 +39,12 @@ public class Player : MonoBehaviour
             ClockRock();
         }
         HandleInputs();
+
+        if (Input.GetKeyDown(KeyCode.P) && inPauseMenu == false)
+        {
+            inPauseMenu = true;
+            Instantiate(_pauseMenu, Canvas);
+        }
     }
 
     void HandleInputs()
