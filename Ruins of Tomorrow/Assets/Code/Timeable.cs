@@ -12,6 +12,7 @@ public class Timeable : MonoBehaviour
     public GameObject presentObject;
 
     private Vector3 position;
+    private Vector2 laserdirection;
 
     void Start()
     {
@@ -34,22 +35,46 @@ public class Timeable : MonoBehaviour
         else
         {
             position = GetComponent<Transform>().position;
+            var laser = GetComponent<Laser>();
+
 
             if (new_time == timeState.Past)
             {
                 currentTime = timeState.Past;
                 Debug.Log("Setting this " + this + " object to past!");
-                Destroy(gameObject);
-                var newobj = Instantiate(pastObject);
-                newobj.GetComponent<Transform>().position = position;
+                if (laser)
+                {
+                    laserdirection = laser.dir;
+                    Destroy(gameObject);
+                    var newobj = Instantiate(pastObject);
+                    newobj.GetComponent<Laser>().dir = laserdirection;
+                    newobj.GetComponent<Transform>().position = position;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                    var newobj = Instantiate(pastObject);
+                    newobj.GetComponent<Transform>().position = position;
+                }
             }
             else
             {
                 currentTime = timeState.Present;
                 Debug.Log("Setting this " + this + "object to present!");
-                Destroy(gameObject);
-                var newobj = Instantiate(presentObject);
-                newobj.GetComponent<Transform>().position = position;
+                if (laser)
+                {
+                    laserdirection = laser.dir;
+                    Destroy(gameObject);
+                    var newobj = Instantiate(presentObject);
+                    newobj.GetComponent<Laser>().dir = laserdirection;
+                    newobj.GetComponent<Transform>().position = position;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                    var newobj = Instantiate(presentObject);
+                    newobj.GetComponent<Transform>().position = position;
+                }
             }
         }
     }
