@@ -13,6 +13,7 @@ public class Timeable : MonoBehaviour
 
     private Vector3 position;
     private Vector2 laserdirection;
+    private int radius;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class Timeable : MonoBehaviour
         {
             position = GetComponent<Transform>().position;
             var laser = GetComponent<Laser>();
+            var clockrock = GetComponent<ChangeTime>();
 
 
             if (new_time == timeState.Past)
@@ -48,6 +50,14 @@ public class Timeable : MonoBehaviour
                     Destroy(this.gameObject);
                     var newobj = Instantiate(pastObject);
                     newobj.GetComponent<Laser>().dir = laserdirection;
+                    newobj.GetComponent<Transform>().position = position;
+                }
+                else if (clockrock)
+                {
+                    radius = clockrock.CastRadius;
+                    Destroy(this.gameObject);
+                    var newobj = Instantiate(pastObject);
+                    newobj.GetComponent<ChangeTime>().CastRadius = radius;
                     newobj.GetComponent<Transform>().position = position;
                 }
                 else
@@ -67,6 +77,14 @@ public class Timeable : MonoBehaviour
                     Destroy(this.gameObject);
                     var newobj = Instantiate(presentObject);
                     newobj.GetComponent<Laser>().dir = laserdirection;
+                    newobj.GetComponent<Transform>().position = position;
+                }
+                else if (clockrock)
+                {
+                    radius = clockrock.CastRadius;
+                    Destroy(this.gameObject);
+                    var newobj = Instantiate(presentObject);
+                    newobj.GetComponent<ChangeTime>().CastRadius = radius;
                     newobj.GetComponent<Transform>().position = position;
                 }
                 else
