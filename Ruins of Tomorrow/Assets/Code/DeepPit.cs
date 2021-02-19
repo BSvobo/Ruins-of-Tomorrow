@@ -33,5 +33,9 @@ public class DeepPit : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
             }
         }
+        else if (collision.gameObject.CompareTag("Crate") && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
+        {
+            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+        }
     }
 }
