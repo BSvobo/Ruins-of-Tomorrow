@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         }
         HandleInputs();
 
-        if (Input.GetKeyDown(KeyCode.P) && inPauseMenu == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && inPauseMenu == false)
         {
             inPauseMenu = true;
             Instantiate(_pauseMenu, Canvas);
