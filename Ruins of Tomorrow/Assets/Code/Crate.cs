@@ -38,7 +38,7 @@ public class Crate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.Space))
             {
                 BeingPushed = false;
             }
@@ -62,11 +62,11 @@ public class Crate : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             //Debug.Log("IN PULL RANGE");
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.Space))
             {
                 _rb.velocity = col.attachedRigidbody.velocity *.9f;
             }
-            else if (Input.GetKey(KeyCode.E) == false && !BeingPushed)
+            else if (Input.GetKey(KeyCode.Space) == false && !BeingPushed)
             {
                 _rb.velocity = _rb.velocity = Vector2.zero;
             }
