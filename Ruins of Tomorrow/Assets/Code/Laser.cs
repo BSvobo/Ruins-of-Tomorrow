@@ -39,8 +39,8 @@ public class Laser : MonoBehaviour
         List<Vector3> pos = new List<Vector3>(); 
         pos.Add(gun);
         pos.Add(hitPoint);
-        l.startWidth = .1f; 
-        l.endWidth = .1f;
+        l.startWidth = .15f; 
+        l.endWidth = .15f;
         l.SetPositions(pos.ToArray());
         l.useWorldSpace = true;
             

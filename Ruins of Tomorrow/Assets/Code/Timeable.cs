@@ -12,6 +12,7 @@ public class Timeable : MonoBehaviour
     public GameObject presentObject;
 
     private Vector3 position;
+    private Quaternion rotation;
     private Vector2 laserdirection;
     private int radius;
 
@@ -36,6 +37,7 @@ public class Timeable : MonoBehaviour
         else
         {
             position = GetComponent<Transform>().position;
+            rotation = GetComponent<Transform>().rotation;
             var laser = GetComponent<Laser>();
             var clockrock = GetComponent<ChangeTime>();
 
@@ -51,6 +53,7 @@ public class Timeable : MonoBehaviour
                     var newobj = Instantiate(pastObject);
                     newobj.GetComponent<Laser>().dir = laserdirection;
                     newobj.GetComponent<Transform>().position = position;
+                    newobj.GetComponent<Transform>().rotation = rotation;
                 }
                 else if (clockrock)
                 {

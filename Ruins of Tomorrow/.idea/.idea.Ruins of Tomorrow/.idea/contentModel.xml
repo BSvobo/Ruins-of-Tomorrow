@@ -15,6 +15,12 @@
           <e p="Player.cs" t="Include" />
           <e p="Timeable.cs" t="Include" />
         </e>
+        <e p="sci-fi-sounds" t="Include">
+          <e p="License.txt" t="Include" />
+        </e>
+        <e p="unlearned" t="Include">
+          <e p="unlearned.txt" t="Include" />
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
