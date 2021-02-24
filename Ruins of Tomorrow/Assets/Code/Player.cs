@@ -18,14 +18,21 @@ public class Player : MonoBehaviour
 
     enum direction {left, right, up, down};
     private direction _dir;
+    private SpriteRenderer sprite;
+    private Animator animator;
 
     //private bool moving;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
+        sprite.flipX = false;
         Canvas = GameObject.Find("Canvas").transform;
+        //animator.SetBool("walking", false);
+        
 
         Screen.SetResolution(1280, 720, false);
     }
@@ -52,16 +59,21 @@ public class Player : MonoBehaviour
         {
             _rb.velocity = Vector2.left *speed;
             _dir = direction.left;
+            sprite.flipX = true;
+            animator.SetBool("walking",true);
         }
         else if (Input.GetKey("right") || Input.GetKey("d"))
         {
             _rb.velocity = Vector2.right *speed;
             _dir = direction.right;
+            sprite.flipX = false;
+            animator.SetBool("walking",true);
         }
         else if (Input.GetKey("up") || Input.GetKey("w"))
         {
             _rb.velocity = Vector2.up *speed;
             _dir = direction.up;
+            animator.SetBool("walkup",true);
         }
         else if (Input.GetKey("down") || Input.GetKey("s"))
         {
@@ -71,6 +83,8 @@ public class Player : MonoBehaviour
         else
         {
             _rb.velocity = Vector2.zero;
+            animator.SetBool("walking",false);
+            animator.SetBool("walkup",false);
         }
     }
     void OnCollisionEnter2D(Collision2D collision)

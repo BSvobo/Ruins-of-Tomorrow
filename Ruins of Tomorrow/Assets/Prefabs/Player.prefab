@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6876154464496165375}
   - component: {fileID: 6876154464496165373}
   - component: {fileID: 4396141073052582309}
+  - component: {fileID: 3935518460641737779}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -120,6 +121,7 @@ MonoBehaviour:
   speed: 3
   _pauseMenu: {fileID: 3982261850112403434, guid: c2e957c1e4195b8478675672c4fa5434,
     type: 3}
+  animator: {fileID: 3935518460641737779}
 --- !u!60 &4396141073052582309
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +166,22 @@ PolygonCollider2D:
       - {x: -0.036594152, y: 0.024661899}
       - {x: -0.004185172, y: 0.055814706}
       - {x: -0.037092704, y: 0.08290729}
+--- !u!95 &3935518460641737779
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876154464496165370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7702763a0d0e24a58bb258734098ae78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
