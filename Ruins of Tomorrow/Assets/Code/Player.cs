@@ -21,12 +21,17 @@ public class Player : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
 
+    private bool isWalking = false;
+    //public AudioClip WalkingSound;
+    private AudioSource audioSource;
+
     //private bool moving;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         _rb.velocity = new Vector2(0, 0);
         _dir = direction.right;
         sprite.flipX = false;
@@ -50,6 +55,22 @@ public class Player : MonoBehaviour
         {
             inPauseMenu = true;
             Instantiate(_pauseMenu, Canvas);
+        }
+        if (_rb.velocity != Vector2.zero)
+        {
+            isWalking = true;
+        }
+
+        if (isWalking == true)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 
@@ -83,61 +104,39 @@ public class Player : MonoBehaviour
         else
         {
             _rb.velocity = Vector2.zero;
+            isWalking = false;
             animator.SetBool("walking",false);
             animator.SetBool("walkup",false);
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Crate")
+        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
         {
-            Debug.Log("The player collided with the crate");
             if (_dir == direction.left)
             {
                 collision.rigidbody.velocity = new Vector2(-1, 0) * speed *.5f;
-                Debug.Log("The crate is moving left");
             }
             else if (_dir == direction.right)
             {
                 collision.rigidbody.velocity = new Vector2(1, 0) * speed *.5f;
-                Debug.Log("The crate is moving right");
             }
             else if (_dir == direction.up)
             {
                 collision.rigidbody.velocity = new Vector2(0, 1) * speed *.5f;
-                Debug.Log("The crate is moving up");
             }
             else if (_dir == direction.down)
             {
                 collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
-                Debug.Log("The crate is moving down");
             }
 
         }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Crate")
-        {
-            if (Input.GetKey(KeyCode.E))
-            {
-                //collision.rigidbody.velocity = _rb.velocity;
-            }
-            else
-            {
-                collision.rigidbody.velocity = Vector2.zero;
-                Debug.Log("Resetting the velocity of the crate");
-            }
-        }
-
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
         {
-            Debug.Log("Connecting the crate to the player");
             _rb.velocity = _rb.velocity * .5f;
         }
     }
