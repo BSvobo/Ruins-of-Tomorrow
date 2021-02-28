@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     //public AudioClip WalkingSound;
     private AudioSource audioSource;
 
+    public AudioClip falling;
+    
+    
     //private bool moving;
     void Start()
     {
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
         _dir = direction.right;
         sprite.flipX = false;
         Canvas = GameObject.Find("Canvas").transform;
+       
         //animator.SetBool("walking", false);
         
 
@@ -94,19 +98,19 @@ public class Player : MonoBehaviour
         {
             _rb.velocity = Vector2.up *speed;
             _dir = direction.up;
-            animator.SetBool("walkup",true);
+            animator.SetBool("walking",true);
         }
         else if (Input.GetKey("down") || Input.GetKey("s"))
         {
             _rb.velocity = Vector2.down *speed;
             _dir = direction.down;
+            animator.SetBool("walking", true);
         }
         else
         {
             _rb.velocity = Vector2.zero;
             isWalking = false;
-            animator.SetBool("walking",false);
-            animator.SetBool("walkup",false);
+            animator.SetBool("walking", false);
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -171,6 +175,11 @@ public class Player : MonoBehaviour
                 hit.collider.GetComponent<ChangeTime>().sendThemBack();
             }
         }
+    }
+
+    public void playFallingSound()
+    {
+        audioSource.PlayOneShot(falling);
     }
 }
 
