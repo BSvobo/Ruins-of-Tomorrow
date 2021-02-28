@@ -7,6 +7,7 @@ public class ChangeTime : MonoBehaviour
 {
     public Timeable.timeState LocalTimeState;
     public int CastRadius;
+    public AudioClip soundEffect;
     //private bool called = false; 
     Collider2D[] Affectables;
 
@@ -30,7 +31,8 @@ public class ChangeTime : MonoBehaviour
         var CircleCenter = GetComponent<Transform>().transform.position;
         Affectables = Physics2D.OverlapCircleAll(new Vector2(CircleCenter.x, CircleCenter.y), CastRadius);
         Debug.Log("We called sendThemBack() at " + Time.unscaledTime + "\r\nNumber of objects within clock rock radius is " + Affectables.Length);
-
+        GameObject cam = GameObject.Find("Main Camera");
+        cam.GetComponent<ClockRockAudio>().ClockRockChange();
         foreach (Collider2D changing in Affectables)
         {
             Debug.Log("Object within radius of Clock Rock: " + changing.gameObject);

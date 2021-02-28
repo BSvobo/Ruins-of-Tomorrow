@@ -10,11 +10,13 @@ public class Timeable : MonoBehaviour
 
     public GameObject pastObject;
     public GameObject presentObject;
+    public AudioClip audioClip;
 
     private Vector3 position;
     private Quaternion rotation;
     private Vector2 laserdirection;
     private int radius;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -40,8 +42,7 @@ public class Timeable : MonoBehaviour
             rotation = GetComponent<Transform>().rotation;
             var laser = GetComponent<Laser>();
             var clockrock = GetComponent<ChangeTime>();
-
-
+            
             if (new_time == timeState.Past)
             {
                 currentTime = timeState.Past;

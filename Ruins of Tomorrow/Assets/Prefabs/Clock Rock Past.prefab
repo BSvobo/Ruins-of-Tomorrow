@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1346614444937528224, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1612300263806805334, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -119,6 +124,11 @@ PrefabInstance:
       propertyPath: currentTime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634640898721087538, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5038efb294619da4abf1a396ded8e39c, type: 3}
     - target: {fileID: 8634640898721087542, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: LocalTimeState
