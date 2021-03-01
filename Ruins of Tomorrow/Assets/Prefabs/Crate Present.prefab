@@ -100,6 +100,7 @@ MonoBehaviour:
   pastObject: {fileID: 7906856088133504096, guid: 563b5e57b42f2564c9e13c8a7bc3e94c,
     type: 3}
   presentObject: {fileID: 1746611468763361683}
+  audioClip: {fileID: 0}
 --- !u!50 &2907118616181853335
 Rigidbody2D:
   serializedVersion: 4
@@ -134,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.028162599, y: -0.028164506}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,5 +146,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 2.6163251, y: 2.616329}
   m_EdgeRadius: 0

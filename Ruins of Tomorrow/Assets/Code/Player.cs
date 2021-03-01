@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D _rb;
     public float speed;
+    private float normalSpeed;
     private Timeable _timeable;
 
     public static bool inPauseMenu = false;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         _dir = direction.right;
         sprite.flipX = false;
         Canvas = GameObject.Find("Canvas").transform;
+        normalSpeed = speed;
        
         //animator.SetBool("walking", false);
         
@@ -76,6 +78,17 @@ public class Player : MonoBehaviour
         {
             audioSource.Stop();
         }
+        
+        //Make speed slower when pushing/pulling crate
+        if (Crate.BeingMoved)
+        {
+            speed = normalSpeed * .5f;
+        }
+        else
+        {
+            speed = normalSpeed;
+        }
+
     }
 
     void HandleInputs()
@@ -120,19 +133,19 @@ public class Player : MonoBehaviour
             //animator.SetBool("pushing", true);
             if (_dir == direction.left)
             {
-                collision.rigidbody.velocity = new Vector2(-1, 0) * speed *.5f;
+                collision.rigidbody.velocity = new Vector2(-1, 0) * speed;
             }
             else if (_dir == direction.right)
             {
-                collision.rigidbody.velocity = new Vector2(1, 0) * speed *.5f;
+                collision.rigidbody.velocity = new Vector2(1, 0) * speed;
             }
             else if (_dir == direction.up)
             {
-                collision.rigidbody.velocity = new Vector2(0, 1) * speed *.5f;
+                collision.rigidbody.velocity = new Vector2(0, 1) * speed;
             }
             else if (_dir == direction.down)
             {
-                collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
+                collision.rigidbody.velocity = new Vector2(0, -1) * speed;
             }
 
         }
@@ -140,9 +153,26 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
+        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.Space))
         {
-            _rb.velocity = _rb.velocity * .5f;
+
+            //animator.SetBool("pushing", true);
+            if (_dir == direction.left)
+            {
+                collision.rigidbody.velocity = new Vector2(-1, 0) * speed * .5f;
+            }
+            else if (_dir == direction.right)
+            {
+                collision.rigidbody.velocity = new Vector2(1, 0) * speed * .5f;
+            }
+            else if (_dir == direction.up)
+            {
+                collision.rigidbody.velocity = new Vector2(0, 1) * speed * .5f;
+            }
+            else if (_dir == direction.down)
+            {
+                collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
+            }
         }
     }
 

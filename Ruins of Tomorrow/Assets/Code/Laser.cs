@@ -66,7 +66,14 @@ public class Laser : MonoBehaviour
 
             StartCoroutine("ResetLevelCo");
         }
-        
+
+        if (hit.collider.CompareTag("Crate"))
+        {
+            Color newColor = new Vector4(0.0001f, 0.0001f, 0.0001f, 0f);
+            hit.collider.GetComponent<SpriteRenderer>().color = hit.collider.GetComponent<SpriteRenderer>().color - newColor; 
+
+        }
+
         laserspot = hitPoint;
     }
 

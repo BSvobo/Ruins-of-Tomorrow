@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 4009072923289783599}
   - component: {fileID: 1419038025589943821}
   - component: {fileID: 2882909268905540085}
+  - component: {fileID: 2447648297382680884}
   m_Layer: 8
   m_Name: Crate Past
   m_TagString: Crate
@@ -156,6 +157,7 @@ MonoBehaviour:
   pastObject: {fileID: 7906856088133504096}
   presentObject: {fileID: 1746611468763361683, guid: 968a49826297f504b82d719099397f0a,
     type: 3}
+  audioClip: {fileID: 0}
 --- !u!50 &4327264887774770118
 Rigidbody2D:
   serializedVersion: 4
@@ -339,3 +341,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2447648297382680884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906856088133504096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d3df0e101fad6468e0e846f2aa2ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
