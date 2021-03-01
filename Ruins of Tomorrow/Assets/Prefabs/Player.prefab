@@ -119,9 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904e20bdc3c5e4a958c4a006979b911d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   _pauseMenu: {fileID: 3982261850112403434, guid: c2e957c1e4195b8478675672c4fa5434,
     type: 3}
+  _dir: 0
   falling: {fileID: 8300000, guid: aa8f81ac4c2f3472184a4cbc1f497505, type: 3}
 --- !u!60 &4396141073052582309
 PolygonCollider2D:

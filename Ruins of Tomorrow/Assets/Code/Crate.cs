@@ -65,6 +65,12 @@ public class Crate : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 BeingMoved = true;
+                /*if (col.gameObject.GetComponent<Player>()._dir == Player.direction.up)
+                {
+                    col.gameObject.GetComponent<Animator>().SetBool("up", true);
+                }*/
+                col.gameObject.GetComponent<Animator>().SetBool("pushing", true);
+
 
                 Vector2 new_velocity = col.attachedRigidbody.velocity;
                 _rb.velocity = new_velocity;
@@ -73,6 +79,7 @@ public class Crate : MonoBehaviour
             else if (Input.GetKey(KeyCode.Space) == false)
             {
                 BeingMoved = false;
+                col.gameObject.GetComponent<Animator>().SetBool("pushing", false);
 
             }
         }

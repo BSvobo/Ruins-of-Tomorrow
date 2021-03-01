@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DeepPit : MonoBehaviour
 {
+    public AudioClip playerFell;
+
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,9 +34,9 @@ public class DeepPit : MonoBehaviour
             {
                 
                 Debug.Log("Player collided with pit, resetting");
-                collision.gameObject.GetComponent<Animator>().SetBool("dying", true);
-                collision.gameObject.GetComponent<Player>().playFallingSound();
-                //StartCoroutine("ResetLevelCo");
+                collision.gameObject.GetComponent<Animator>().SetBool("falling", true);
+                audioSource.PlayOneShot(playerFell);
+                StartCoroutine("ResetLevelCo");
             }
         }
         else if (collision.gameObject.CompareTag("Crate") && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
@@ -43,7 +46,7 @@ public class DeepPit : MonoBehaviour
     }
     public IEnumerator ResetLevelCo()
     {
-        yield return new WaitForSeconds(.694f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //, LoadSceneMode.Single);
     }
 }

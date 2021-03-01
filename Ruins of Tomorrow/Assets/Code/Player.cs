@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     public Object _pauseMenu;
     public static Transform Canvas;
 
-    enum direction {left, right, up, down};
-    private direction _dir;
+    public enum direction {left, right, up, down};
+    public direction _dir;
     private SpriteRenderer sprite;
     private Animator animator;
 
@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
         {
+            //animator.SetBool("pushing", true);
             if (_dir == direction.left)
             {
                 collision.rigidbody.velocity = new Vector2(-1, 0) * speed *.5f;
@@ -177,9 +178,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void playFallingSound()
+    /*public void playFallingSound()
     {
         audioSource.PlayOneShot(falling);
-    }
+    }*/
 }
 

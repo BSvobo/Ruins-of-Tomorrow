@@ -10,9 +10,12 @@ public class Laser : MonoBehaviour
     private Vector3 gun;
     public Vector2 dir;
     private Timeable _timeable;
-    private AudioSource audioSource;
+    public AudioSource hitAudio;
     public AudioClip hitPlayer;
-    
+    public GameObject particleHolder;
+    private Vector3 laserspot;
+
+
     //private float i;
 
     // Start is called before the first frame update
@@ -21,8 +24,7 @@ public class Laser : MonoBehaviour
         l = gameObject.GetComponent<LineRenderer>();
         gun = transform.position;
         _timeable = gameObject.GetComponent<Timeable>();
-        audioSource = GetComponent<AudioSource>();
-        //i = 0;
+        
     }
 
     // Update is called once per frame
@@ -47,13 +49,25 @@ public class Laser : MonoBehaviour
         l.endWidth = .15f;
         l.SetPositions(pos.ToArray());
         l.useWorldSpace = true;
-            
+
+        if (laserspot != hitPoint)
+        {
+            var particles = Instantiate(particleHolder);
+            particles.transform.position = hitPoint;
+        }
+
         if (hit.collider.CompareTag("Player"))
         {
             hit.collider.GetComponent<Animator>().SetBool("dying", true);
-            audioSource.PlayOneShot(hitPlayer); 
+            if (!hitAudio.isPlaying)
+            {
+                hitAudio.PlayOneShot(hitPlayer);
+            }
+
             StartCoroutine("ResetLevelCo");
         }
+        
+        laserspot = hitPoint;
     }
 
     public IEnumerator ResetLevelCo()
