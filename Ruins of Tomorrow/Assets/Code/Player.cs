@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip falling;
+    public Light clock_rock_halo;
     
     
     //private bool moving;
@@ -44,8 +45,6 @@ public class Player : MonoBehaviour
        
         //animator.SetBool("walking", false);
         
-
-        Screen.SetResolution(1280, 720, false);
     }
 
     // Update is called once per frame
@@ -149,6 +148,11 @@ public class Player : MonoBehaviour
             }
 
         }
+        /*else if (collision.gameObject.tag == "Clock Rock")
+        {
+            clock_rock_halo = collision.gameObject.GetComponent<Light>();
+            clock_rock_halo.enabled = true;
+        }*/
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -175,6 +179,15 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    /*void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Clock Rock"))
+        {
+            clock_rock_halo = collision.gameObject.GetComponent<Light>();
+            clock_rock_halo.enabled = false;
+        }
+    }*/
 
 
     void ClockRock()

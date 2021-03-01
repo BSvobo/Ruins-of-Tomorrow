@@ -22,6 +22,16 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.62
       objectReference: {fileID: 0}
+    - target: {fileID: 6911037564034272321, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4278224383
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911037564034272321, guid: 2a25f9270905443ea809f15af19ced42,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8634640898721087536, guid: 2a25f9270905443ea809f15af19ced42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,6 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6304609643748252350, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
+    - {fileID: 1612300263806805334, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a25f9270905443ea809f15af19ced42, type: 3}
 --- !u!1 &7505070261850278061 stripped
 GameObject:
