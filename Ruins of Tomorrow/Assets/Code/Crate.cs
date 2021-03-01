@@ -8,8 +8,11 @@ public class Crate : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip DraggingSound;
     public static bool BeingMoved = false;
+    private bool OnFire = false;
     private SpriteRenderer sprite;
+    private Transform _transform;
     private Color burnt;
+    public GameObject FireAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,7 @@ public class Crate : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         burnt = new Color(.9f, .9f, .9f, 1f);
+        _transform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -38,7 +42,17 @@ public class Crate : MonoBehaviour
             
         }
 
-        if (sprite.color.r < .1f)
+        if (sprite.color.r < .32f) //change back to .3f
+        {
+            if (!OnFire)
+            {
+                OnFire = true;
+                Instantiate(FireAnim, _transform.position, Quaternion.identity);
+                Debug.Log("Instatiating fire animation");
+            }
+
+        }
+        if (sprite.color.r < .3f)
         {
             destroy();
         }

@@ -219,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 4327264887774770118}
   DraggingSound: {fileID: 8300000, guid: 221550b0b2712cf4388b219a42fba1a4, type: 3}
+  FireAnim: {fileID: 6052269455198966983, guid: 6adce684c219e65479264d7fa54cbb30,
+    type: 3}
 --- !u!61 &1419038025589943821
 BoxCollider2D:
   m_ObjectHideFlags: 0
