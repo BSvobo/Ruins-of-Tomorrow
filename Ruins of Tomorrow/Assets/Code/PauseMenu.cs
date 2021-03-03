@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    //THIS IS THE SCRIPT FOR RUINS OF TOMORROW DON'T GET IT CONFUSED!!!!!!!!!!!!!!!!!!!!!!!!!
 
     public Object _pauseMenu;
     public static Transform Canvas;
@@ -37,6 +36,9 @@ public class PauseMenu : MonoBehaviour
 
         Button startMenuButton = GameObject.Find("StartMenu").GetComponent<Button>();
         startMenuButton.onClick.AddListener(() => GoToStartMenu());
+
+        Button restartLevelButton = GameObject.Find("Restart Level").GetComponent<Button>();
+        restartLevelButton.onClick.AddListener(() => Restart());
     }
 
     public void QuitGame()
@@ -65,5 +67,11 @@ public class PauseMenu : MonoBehaviour
         ReturnToGame();
         Debug.Log("Destroying Pause Menu");
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ReturnToGame();
     }
 }

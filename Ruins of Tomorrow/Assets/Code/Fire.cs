@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     private float time;
-    private float fade = 4.5f;
+    private float fade = 5f;
     private Color transparent;
     private SpriteRenderer sprite;
     // Start is called before the first frame update

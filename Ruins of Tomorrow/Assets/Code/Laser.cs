@@ -80,7 +80,7 @@ public class Laser : MonoBehaviour
 
         if (hit.collider.CompareTag("Crate"))
         {
-            Color newColor = new Vector4(0.0002f, 0.0002f, 0.0002f, 0f);
+            Color newColor = new Vector4(0.00027f, 0.00027f, 0.00027f, 0f);
             hit.collider.GetComponent<SpriteRenderer>().color = hit.collider.GetComponent<SpriteRenderer>().color - newColor;
         }
     }

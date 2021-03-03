@@ -42,12 +42,13 @@ public class Crate : MonoBehaviour
             
         }
 
-        if (sprite.color.r < .32f) //change back to .3f
+        if (sprite.color.r < .39) //change back to .3f
         {
             if (!OnFire)
             {
+                Vector3 slightlyUp = new Vector3(0f, .13f, 0f);
                 OnFire = true;
-                Instantiate(FireAnim, _transform.position, Quaternion.identity);
+                Instantiate(FireAnim, _transform.position + slightlyUp, Quaternion.identity);
                 Debug.Log("Instatiating fire animation");
             }
 
