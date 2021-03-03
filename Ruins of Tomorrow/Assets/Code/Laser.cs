@@ -14,6 +14,7 @@ public class Laser : MonoBehaviour
     public AudioClip hitPlayer;
     public GameObject particleHolder;
     private Vector3 laserspot;
+    private GameObject particleHolderToDestroy;
 
 
     //private float i;
@@ -39,7 +40,12 @@ public class Laser : MonoBehaviour
     void LaserRender()
     {
         RaycastHit2D[] hits = Physics2D.RaycastAll(gun, dir);
-        RaycastHit2D hit = hits[1];
+        RaycastHit2D hit;
+
+        if (hits[1].collider.isTrigger)
+        {
+            hit = hits[2];
+        }else{hit = hits[1];}
         
         Vector3 hitPoint = hit.point;
         List<Vector3> pos = new List<Vector3>(); 
@@ -52,9 +58,14 @@ public class Laser : MonoBehaviour
 
         if (laserspot != hitPoint)
         {
+            Destroy(particleHolderToDestroy);
             var particles = Instantiate(particleHolder);
             particles.transform.position = hitPoint;
+            particles.transform.parent = gameObject.transform; 
+            particleHolderToDestroy = particles;
         }
+        
+        laserspot = hitPoint;
 
         if (hit.collider.CompareTag("Player"))
         {
@@ -70,11 +81,8 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag("Crate"))
         {
             Color newColor = new Vector4(0.0002f, 0.0002f, 0.0002f, 0f);
-            hit.collider.GetComponent<SpriteRenderer>().color = hit.collider.GetComponent<SpriteRenderer>().color - newColor; 
-
+            hit.collider.GetComponent<SpriteRenderer>().color = hit.collider.GetComponent<SpriteRenderer>().color - newColor;
         }
-
-        laserspot = hitPoint;
     }
 
     public IEnumerator ResetLevelCo()

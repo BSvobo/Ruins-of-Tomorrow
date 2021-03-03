@@ -92,44 +92,53 @@ public class Player : MonoBehaviour
 
     void HandleInputs()
     {
-        if (Input.GetKey("left") || Input.GetKey("a"))
+        //if (Input.GetKey("left") || Input.GetKey("a"))
+        if(Input.GetAxisRaw("Horizontal") < 0)
         {
             _rb.velocity = Vector2.left *speed;
             _dir = direction.left;
-            sprite.flipX = true;
-            animator.SetBool("walking",true);
+            animator.SetBool("walkingL",true);
+            animator.SetBool("walkingR", false);
+
         }
         else if (Input.GetKey("right") || Input.GetKey("d"))
         {
             _rb.velocity = Vector2.right *speed;
             _dir = direction.right;
-            sprite.flipX = false;
-            animator.SetBool("walking",true);
+            animator.SetBool("walkingR",true);
+            animator.SetBool("walkingL", false);
+
         }
         else if (Input.GetKey("up") || Input.GetKey("w"))
         {
             _rb.velocity = Vector2.up *speed;
             _dir = direction.up;
-            animator.SetBool("walking",true);
+            animator.SetBool("walkingR",true);
+            animator.SetBool("walkingL", false);
+
         }
         else if (Input.GetKey("down") || Input.GetKey("s"))
         {
             _rb.velocity = Vector2.down *speed;
             _dir = direction.down;
-            animator.SetBool("walking", true);
+            animator.SetBool("walkingL", true);
+            animator.SetBool("walkingR", false);
+
         }
         else
         {
             _rb.velocity = Vector2.zero;
             isWalking = false;
-            animator.SetBool("walking", false);
+            animator.SetBool("walkingR", false);
+            animator.SetBool("walkingL", false);
+
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //TODO: Do we still need this?
         if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
         {
-            //animator.SetBool("pushing", true);
             if (_dir == direction.left)
             {
                 collision.rigidbody.velocity = new Vector2(-1, 0) * speed;
@@ -159,8 +168,6 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.Space))
         {
-
-            //animator.SetBool("pushing", true);
             if (_dir == direction.left)
             {
                 collision.rigidbody.velocity = new Vector2(-1, 0) * speed * .5f;
@@ -192,7 +199,8 @@ public class Player : MonoBehaviour
 
     void ClockRock()
     {
-        Vector2 cast = new Vector2(1,0);
+        //TODO: check the google doc
+        var cast = new Vector2(1,0);
         if (_dir == direction.left)
         {
             cast = new Vector2(-1, 0);
@@ -221,9 +229,49 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*public void playFallingSound()
+    public void pushPull()
     {
-        audioSource.PlayOneShot(falling);
-    }*/
+        if (Input.GetKey("space"))
+        {
+            var origin = transform.position;
+            RaycastHit2D[] hitsU = Physics2D.RaycastAll(origin,Vector2.up,.5f);
+            RaycastHit2D[] hitsD = Physics2D.RaycastAll(origin,Vector2.down,.5f);
+            RaycastHit2D[] hitsL = Physics2D.RaycastAll(origin,Vector2.left,.5f);
+            RaycastHit2D[] hitsR = Physics2D.RaycastAll(origin,Vector2.right,.5f);
+
+            if (hitsU.Length > 1 && hitsU[1].collider.gameObject.CompareTag("Crate"))
+            {
+                animator.SetBool("pushing",true);
+                animator.SetBool("up",true);
+            }
+            else if (hitsD.Length > 1 && hitsD[1].collider.gameObject.CompareTag("Crate"))
+            {
+                animator.SetBool("pushing",true);
+                animator.SetBool("down",true);
+            }
+            else if (hitsL.Length > 1 && hitsL[1].collider.gameObject.CompareTag("Crate"))
+            {
+                animator.SetBool("pushing",true);
+                sprite.flipX = true;
+            }
+            else if (hitsR.Length > 1 && hitsR[1].collider.gameObject.CompareTag("Crate"))
+            {
+                animator.SetBool("pushing",true);
+                sprite.flipX = false;
+            } else {
+                sprite.flipX = false;
+                animator.SetBool("up",false);
+                animator.SetBool("down",false);
+                animator.SetBool("pushing",false);
+            }
+        }
+        else
+        {
+            sprite.flipX = false;
+            animator.SetBool("up",false);
+            animator.SetBool("down",false);
+            animator.SetBool("pushing",false);
+        }
+    }
 }
 
