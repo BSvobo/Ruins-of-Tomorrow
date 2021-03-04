@@ -56,10 +56,19 @@ public class Player : MonoBehaviour
         }
         HandleInputs();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && inPauseMenu == false)
+        //Instatiate or destroy Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            inPauseMenu = true;
-            Instantiate(_pauseMenu, Canvas);
+            if (inPauseMenu == false)
+            {
+                inPauseMenu = true;
+                Instantiate(_pauseMenu, Canvas);
+            }
+            else
+            {
+                //Return to Game
+                
+            }
         }
         if (_rb.velocity != Vector2.zero)
         {
@@ -134,55 +143,30 @@ public class Player : MonoBehaviour
 
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //TODO: Do we still need this?
-        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.E))
-        {
-            if (_dir == direction.left)
-            {
-                collision.rigidbody.velocity = new Vector2(-1, 0) * speed;
-            }
-            else if (_dir == direction.right)
-            {
-                collision.rigidbody.velocity = new Vector2(1, 0) * speed;
-            }
-            else if (_dir == direction.up)
-            {
-                collision.rigidbody.velocity = new Vector2(0, 1) * speed;
-            }
-            else if (_dir == direction.down)
-            {
-                collision.rigidbody.velocity = new Vector2(0, -1) * speed;
-            }
 
-        }
-        /*else if (collision.gameObject.tag == "Clock Rock")
-        {
-            clock_rock_halo = collision.gameObject.GetComponent<Light>();
-            clock_rock_halo.enabled = true;
-        }*/
-    }
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Crate" && Input.GetKey(KeyCode.Space))
+        if (collision.gameObject.tag == "Crate" || collision.gameObject.tag == "Metal Box")
         {
-            if (_dir == direction.left)
+            if (Input.GetKey(KeyCode.Space))
             {
-                collision.rigidbody.velocity = new Vector2(-1, 0) * speed * .5f;
-            }
-            else if (_dir == direction.right)
-            {
-                collision.rigidbody.velocity = new Vector2(1, 0) * speed * .5f;
-            }
-            else if (_dir == direction.up)
-            {
-                collision.rigidbody.velocity = new Vector2(0, 1) * speed * .5f;
-            }
-            else if (_dir == direction.down)
-            {
-                collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
+                if (_dir == direction.left)
+                {
+                    collision.rigidbody.velocity = new Vector2(-1, 0) * speed * .5f;
+                }
+                else if (_dir == direction.right)
+                {
+                    collision.rigidbody.velocity = new Vector2(1, 0) * speed * .5f;
+                }
+                else if (_dir == direction.up)
+                {
+                    collision.rigidbody.velocity = new Vector2(0, 1) * speed * .5f;
+                }
+                else if (_dir == direction.down)
+                {
+                    collision.rigidbody.velocity = new Vector2(0, -1) * speed * .5f;
+                }
             }
         }
     }
@@ -195,6 +179,10 @@ public class Player : MonoBehaviour
             clock_rock_halo.enabled = false;
         }
     }*/
+    private void destroy(Object thingToDestroy)
+    {
+        Destroy(thingToDestroy);
+    }
 
 
     void ClockRock()

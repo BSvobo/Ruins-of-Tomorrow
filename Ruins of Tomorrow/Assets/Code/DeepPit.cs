@@ -43,6 +43,10 @@ public class DeepPit : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
         }
+        else if (collision.gameObject.CompareTag("Metal Box") && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
+        {
+            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+        }
     }
     public IEnumerator ResetLevelCo()
     {

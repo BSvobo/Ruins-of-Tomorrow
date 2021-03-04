@@ -10,6 +10,7 @@ TagManager:
   - Clock Rock
   - Crate Pull
   - Wall
+  - Metal Box
   layers:
   - Default
   - TransparentFX
