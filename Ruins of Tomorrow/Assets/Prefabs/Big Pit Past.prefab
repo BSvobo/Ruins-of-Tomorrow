@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e6953eea072c24a97a045303736458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFell: {fileID: 0}
 --- !u!114 &1771541559468563879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,8 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 0
   pastObject: {fileID: 1771541559468563876}
-  presentObject: {fileID: 7349803578839270949, guid: 064d43791edf0364095f54036791a5f1,
+  presentObject: {fileID: 2368744859372933837, guid: 08b934808a4992646bb590d9eab83bbc,
     type: 3}
+  audioClip: {fileID: 0}
 --- !u!60 &3151202647500055202
 PolygonCollider2D:
   m_ObjectHideFlags: 0

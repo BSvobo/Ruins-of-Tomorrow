@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8634640898721087538}
   - component: {fileID: 1346614444937528224}
   - component: {fileID: 4039703959590153166}
+  - component: {fileID: 708110478212948516}
   m_Layer: 8
   m_Name: Clock Rock Present
   m_TagString: Clock Rock
@@ -229,3 +230,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &708110478212948516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634640898721087543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eae6edbda880e444a8b3e3b867b959c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowy: {fileID: 21300000, guid: 05382f2012655ef4280d85fd1d8f0f47, type: 3}
+  dimmy: {fileID: 21300000, guid: c18ece60af7efde4cb24ec1f7d261f33, type: 3}

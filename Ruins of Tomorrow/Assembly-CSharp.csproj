@@ -58,6 +58,7 @@
      <Compile Include="Assets\Code\BurningCrate.cs" />
      <Compile Include="Assets\Code\ButtonManager.cs" />
      <Compile Include="Assets\Code\ChangeTime.cs" />
+     <Compile Include="Assets\Code\ClockRock.cs" />
      <Compile Include="Assets\Code\ClockRockAudio.cs" />
      <Compile Include="Assets\Code\Crate.cs" />
      <Compile Include="Assets\Code\DeepPit.cs" />

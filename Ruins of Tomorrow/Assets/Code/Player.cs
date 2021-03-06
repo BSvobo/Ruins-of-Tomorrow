@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
 
     public AudioClip falling;
     public Light clock_rock_halo;
+
+    private GameObject clock_rock_to_be_changed;
+    private bool clock_rock_toggleable;
     
     
     //private bool moving;
@@ -50,10 +53,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
             ClockRock();
-        }
+        }*/
         HandleInputs();
 
         //Instatiate or destroy Menu
@@ -95,6 +98,15 @@ public class Player : MonoBehaviour
         else
         {
             speed = normalSpeed;
+        }
+
+        //Toggle Clock Rock if we're in the range to do so
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (clock_rock_toggleable)
+            {
+                clock_rock_to_be_changed.GetComponent<ChangeTime>().sendThemBack();
+            }
         }
 
     }
@@ -171,21 +183,31 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.CompareTag("Clock Rock"))
+        if(other.gameObject.CompareTag("Clock Rock"))
         {
-            clock_rock_halo = collision.gameObject.GetComponent<Light>();
-            clock_rock_halo.enabled = false;
+            clock_rock_to_be_changed = other.gameObject;
+            clock_rock_toggleable = true;
         }
-    }*/
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Clock Rock"))
+        {
+            clock_rock_toggleable = false;
+            clock_rock_to_be_changed = null;
+        }
+    }
+
     private void destroy(Object thingToDestroy)
     {
         Destroy(thingToDestroy);
     }
 
 
-    void ClockRock()
+    /*void ClockRock()
     {
         //TODO: check the google doc
         var cast = new Vector2(1,0);
@@ -215,7 +237,7 @@ public class Player : MonoBehaviour
                 hit.collider.GetComponent<ChangeTime>().sendThemBack();
             }
         }
-    }
+    }*/
 
     public void pushPull()
     {
