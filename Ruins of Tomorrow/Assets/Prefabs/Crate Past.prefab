@@ -221,6 +221,8 @@ MonoBehaviour:
   DraggingSound: {fileID: 8300000, guid: 221550b0b2712cf4388b219a42fba1a4, type: 3}
   FireAnim: {fileID: 6052269455198966983, guid: 6adce684c219e65479264d7fa54cbb30,
     type: 3}
+  glowyCrate: {fileID: 21300000, guid: 39a81e6c7056c2e4e834905702265044, type: 3}
+  dimmyCrate: {fileID: 21300000, guid: b3f7cc13725d04940a1492146fa84843, type: 3}
 --- !u!61 &1419038025589943821
 BoxCollider2D:
   m_ObjectHideFlags: 0

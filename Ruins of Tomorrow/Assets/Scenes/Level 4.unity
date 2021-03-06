@@ -1971,8 +1971,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1998,9 +1998,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 789ea8f3c415a9941a635c07061d7cd1, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2684,7 +2684,7 @@ PrefabInstance:
     - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.19
+      value: -5.44
       objectReference: {fileID: 0}
     - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
         type: 3}

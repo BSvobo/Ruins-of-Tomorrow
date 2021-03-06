@@ -14,6 +14,9 @@ public class Crate : MonoBehaviour
     private Color burnt;
     public GameObject FireAnim;
 
+    public Sprite glowyCrate;
+    public Sprite dimmyCrate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +88,7 @@ public class Crate : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            sprite.sprite = glowyCrate;
             if (Input.GetKey(KeyCode.Space))
             {
                 BeingMoved = true;
@@ -98,6 +102,14 @@ public class Crate : MonoBehaviour
                 BeingMoved = false;
             }
             col.gameObject.GetComponent<Player>().pushPull();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            sprite.sprite = dimmyCrate;
         }
     }
 

@@ -22,7 +22,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToGame();
+        }
     }
 
     //Initializes the buttons of the pause menu

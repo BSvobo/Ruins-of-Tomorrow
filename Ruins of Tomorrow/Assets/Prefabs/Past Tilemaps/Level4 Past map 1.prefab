@@ -117,8 +117,8 @@ Tilemap:
   - first: {x: 9, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -126,8 +126,8 @@ Tilemap:
   - first: {x: 10, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -162,8 +162,8 @@ Tilemap:
   - first: {x: 6, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -201,10 +201,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4dd0aee75484cf742a7a162cd02d7ffc, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: a1ef4c9f3ca66814c957fef3d2d10874, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: ba0bff3ff147c804ab668397c056b56c, type: 2}
-  - m_RefCount: 5
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 0be0bea6c3283d54892abcd2999eefce, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: ccf5d85a6ad6f5d4fafed47539db8af2, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -2001267347003154254, guid: 55c55430db885f445a034498cfd45b68,
@@ -212,11 +214,14 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 4290499296031783457, guid: 55c55430db885f445a034498cfd45b68,
       type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: -5804709628698774524, guid: 55c55430db885f445a034498cfd45b68,
       type: 3}
-  - m_RefCount: 5
+  - m_RefCount: 3
     m_Data: {fileID: 8884485692320452334, guid: 55c55430db885f445a034498cfd45b68,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1088050680161478532, guid: 55c55430db885f445a034498cfd45b68,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 12
@@ -896,6 +901,7 @@ MonoBehaviour:
   pastObject: {fileID: 8592068668676471856}
   presentObject: {fileID: 6105956911263917441, guid: 0a2e6f8005dd1294680260ace5ffc84f,
     type: 3}
+  audioClip: {fileID: 0}
 --- !u!58 &7780490756959086127
 CircleCollider2D:
   m_ObjectHideFlags: 0
