@@ -8,12 +8,15 @@
           <e p="BurningCrate.cs" t="Include" />
           <e p="ButtonManager.cs" t="Include" />
           <e p="ChangeTime.cs" t="Include" />
+          <e p="ClockRock.cs" t="Include" />
           <e p="ClockRockAudio.cs" t="Include" />
           <e p="Crate.cs" t="Include" />
           <e p="DeepPit.cs" t="Include" />
           <e p="Fire.cs" t="Include" />
           <e p="Laser.cs" t="Include" />
+          <e p="LaserContainer.cs" t="Include" />
           <e p="LevelEnd.cs" t="Include" />
+          <e p="MusicCarry.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Timeable.cs" t="Include" />

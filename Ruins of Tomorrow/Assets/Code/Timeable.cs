@@ -18,6 +18,8 @@ public class Timeable : MonoBehaviour
     private int radius;
     private AudioSource audioSource;
 
+    private GameObject parent;
+
     void Start()
     {
     }
@@ -49,9 +51,10 @@ public class Timeable : MonoBehaviour
                 //Debug.Log("Setting this " + this + " object to past!");
                 if (laser)
                 {
+                    parent = laser.transform.parent.gameObject;
                     laserdirection = laser.dir;
                     Destroy(this.gameObject);
-                    var newobj = Instantiate(pastObject);
+                    var newobj = Instantiate(pastObject, parent.transform);
                     newobj.GetComponent<Laser>().dir = laserdirection;
                     newobj.GetComponent<Transform>().position = position;
                     newobj.GetComponent<Transform>().rotation = rotation;
@@ -77,11 +80,13 @@ public class Timeable : MonoBehaviour
                 //Debug.Log("Setting this " + this + "object to present!");
                 if (laser)
                 {
+                    parent = laser.transform.parent.gameObject;
                     laserdirection = laser.dir;
                     Destroy(this.gameObject);
-                    var newobj = Instantiate(presentObject);
+                    var newobj = Instantiate(presentObject, parent.transform);
                     newobj.GetComponent<Laser>().dir = laserdirection;
                     newobj.GetComponent<Transform>().position = position;
+                    newobj.GetComponent<Transform>().rotation = rotation;
                 }
                 else if (clockrock)
                 {

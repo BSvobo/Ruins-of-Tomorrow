@@ -76,13 +76,13 @@ public class Crate : MonoBehaviour
         }  
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    /*void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
 
         }
-    }
+    }*/
 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -96,12 +96,14 @@ public class Crate : MonoBehaviour
                 Vector2 new_velocity = col.attachedRigidbody.velocity;
                 _rb.velocity = new_velocity;
                 col.attachedRigidbody.velocity = new_velocity;
+
+                col.gameObject.GetComponent<Player>().pushing = true;
             }
             else if (Input.GetKey(KeyCode.Space) == false)
             {
                 BeingMoved = false;
+                col.gameObject.GetComponent<Player>().pushing = false;
             }
-            col.gameObject.GetComponent<Player>().pushPull();
         }
     }
 
@@ -110,6 +112,8 @@ public class Crate : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             sprite.sprite = dimmyCrate;
+            other.gameObject.GetComponent<Player>().pushing = false;
+            BeingMoved = false;
         }
     }
 

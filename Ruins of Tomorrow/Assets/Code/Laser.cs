@@ -6,19 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class Laser : MonoBehaviour
 {
+    private Timeable _timeable;
+    
+    //visual
     private LineRenderer l;
     private Vector3 gun;
     public Vector2 dir;
-    private Timeable _timeable;
-    public AudioSource hitAudio;
-    public AudioSource buzzing;
-    public AudioClip hitPlayer;
     public GameObject particleHolder;
     private Vector3 laserspot;
     private GameObject particleHolderToDestroy;
-
-
-    //private float i;
+    
+    //audio
+    public AudioSource hitAudio;
+    //public AudioSource buzzing;
+    public AudioClip hitPlayer;
+    public AudioSource parentAudio;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,7 @@ public class Laser : MonoBehaviour
         l = gameObject.GetComponent<LineRenderer>();
         gun = transform.position;
         _timeable = gameObject.GetComponent<Timeable>();
-
+        parentAudio = gameObject.transform.parent.GetComponentInParent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,20 +38,8 @@ public class Laser : MonoBehaviour
         if (_timeable.GetTimeState() == Timeable.timeState.Past)
         {
             LaserRender();
-
-            if (Player.inPauseMenu == true)
-            {
-                buzzing.Stop();
-            }
-            else
-            {
-                if (!buzzing.isPlaying)
-                {
-                    buzzing.Play();
-                }
-            }
         }
-
+        
     }
 
     void LaserRender()
@@ -84,6 +75,7 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag("Player"))
         {
             hit.collider.GetComponent<Animator>().SetBool("dying", true);
+            hit.collider.GetComponent<Player>().speed = 0;
             if (!hitAudio.isPlaying)
             {
                 hitAudio.PlayOneShot(hitPlayer);
