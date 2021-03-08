@@ -16,6 +16,10 @@ public class LevelEnd : MonoBehaviour
     void Start()
     {
         level_name.text = SceneManager.GetActiveScene().name;
+        if (level_name.text == "Game End")
+        {
+            level_name.enabled = false;
+        }
     }
 
     // Update is called once per frame

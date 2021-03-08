@@ -1355,6 +1355,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc626404d105f4ff986a63e87db7b397, type: 3}
+--- !u!1001 &463874870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.7861733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9891758
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361681, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746611468763361683, guid: 968a49826297f504b82d719099397f0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Crate Present
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 968a49826297f504b82d719099397f0a, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1734,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565109214588072034, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435474285}
+    - target: {fileID: 2565109214588072034, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db06ffba9368b445832f92fa79ac9d3, type: 3}
@@ -6770,25 +6849,25 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: Oh, wow! It looks like the little hexagons with hourglasses on them
-        are changing time in a small radius around them.
+        can send portions of the ruin back in time!
       objectReference: {fileID: 0}
     - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 'They''re even growing grass back in this radius! I shall affectionately
-        call them "Clock Rocks". '
+      value: They're even bringing back the ancient plant life within their radius!
+        I shall affectionately call them "Clock Rocks".
       objectReference: {fileID: 0}
     - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: 'By reversing time around these Clock Rocks, I appear to be enabling
-        some kind of ancient security technology. '
+      value: Unfortunately, it seems like this civilization had some pretty dangerous
+        security technology in ancient times. I'll need to be careful when I...
       objectReference: {fileID: 0}
     - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: It's a good thing there are some wooden crates handy in the past! Even
-        if they're not all that durable...
+      value: ...enable these Clock Rocks! It's a good thing there are some wooden
+        crates handy in the past! Even if they're not all that durable...
       objectReference: {fileID: 0}
     - target: {fileID: 5271634381044892673, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
@@ -6862,6 +6941,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b20e128e3a055449a316bbcd6b63fdc, type: 3}
+--- !u!114 &1435474285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5271634381044892673, guid: 5b20e128e3a055449a316bbcd6b63fdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1435474284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e522bcac759de4499a10d47b89b0578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581883481
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,7 +7069,7 @@ PrefabInstance:
     - target: {fileID: 3268106571273817908, guid: 02d24153a571af64c86fd98a71d1f75a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3268106571273817908, guid: 02d24153a571af64c86fd98a71d1f75a,
         type: 3}
@@ -6997,75 +7088,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d24153a571af64c86fd98a71d1f75a, type: 3}
---- !u!1001 &1981142266
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692889, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852408382144692891, guid: e4c68a55c3950f84a9b091365af40c79,
-        type: 3}
-      propertyPath: m_Name
-      value: Crate Present Metal
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e4c68a55c3950f84a9b091365af40c79, type: 3}
 --- !u!4 &2010545379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7599334387038143837, guid: bc626404d105f4ff986a63e87db7b397,
@@ -7120,7 +7142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -7164,7 +7186,7 @@ RectTransform:
   m_Children:
   - {fileID: 553659558}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
