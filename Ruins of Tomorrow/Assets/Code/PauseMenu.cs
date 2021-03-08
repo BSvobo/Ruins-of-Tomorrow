@@ -62,6 +62,7 @@ public class PauseMenu : MonoBehaviour
         GameObject pauseMenu = GameObject.Find("Pause Menu");
         Player.inPauseMenu = false;
         Destroy(gameObject);
+        GameObject.Find("Player").GetComponent<Player>().active = true;
     }
 
     public void GoToStartMenu()

@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool clock_rock_toggleable;
 
     public bool pushing;
+    public bool active = false;
     
     
     //private bool moving;
@@ -53,39 +54,37 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        /*if (Input.GetKeyDown("space"))
+    {
+        if (active)
         {
-            ClockRock();
-        }*/
-        SetDirection();
-        Move();
-        Animate();
+            SetDirection();
+            Move();
+            Animate();
 
-        Menu();
+            Menu();
 
-        WalkingSound();
-        
-        
-        //Make speed slower when pushing/pulling crate
-        if (pushing)
-        {
-            speed = normalSpeed * .5f;
-        }
-        else
-        {
-            speed = normalSpeed;
-        }
+            WalkingSound();
 
-        //Toggle Clock Rock if we're in the range to do so
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (clock_rock_toggleable)
+
+            //Make speed slower when pushing/pulling crate
+            if (pushing)
             {
-                clock_rock_to_be_changed.GetComponent<ChangeTime>().sendThemBack();
+                speed = normalSpeed * .5f;
+            }
+            else
+            {
+                speed = normalSpeed;
+            }
+
+            //Toggle Clock Rock if we're in the range to do so
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (clock_rock_toggleable)
+                {
+                    clock_rock_to_be_changed.GetComponent<ChangeTime>().sendThemBack();
+                }
             }
         }
-
     }
 
     void SetDirection()
@@ -177,12 +176,13 @@ public class Player : MonoBehaviour
             if (inPauseMenu == false)
             {
                 inPauseMenu = true;
+                active = false;
                 Instantiate(_pauseMenu, Canvas);
             }
             else
             {
                 //Return to Game
-                
+                active = true;
             }
         }
     }

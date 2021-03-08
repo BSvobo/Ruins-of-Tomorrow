@@ -44,7 +44,7 @@ public class LevelEnd : MonoBehaviour
         else
         {
             SceneManager.LoadScene(activeScene.buildIndex + 1);
-            Debug.Log("Level " + (activeScene.buildIndex) + " Completed Succesfully: Loading Next Level");
+            Debug.Log("Level " + (activeScene.buildIndex) + " Completed Successfully: Loading Next Level");
         }
     }
 }

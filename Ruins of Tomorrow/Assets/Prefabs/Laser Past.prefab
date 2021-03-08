@@ -56,6 +56,7 @@ MonoBehaviour:
     type: 3}
   hitAudio: {fileID: -8342690587308119266}
   hitPlayer: {fileID: 8300000, guid: 7712a36abb530432191f0e0ac34902e5, type: 3}
+  parentAudio: {fileID: 0}
 --- !u!212 &4639583993436121840
 SpriteRenderer:
   m_ObjectHideFlags: 0
