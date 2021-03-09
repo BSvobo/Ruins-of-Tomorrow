@@ -310,12 +310,16 @@ public class Player : MonoBehaviour
         {
             sprite.flipX = true;
         }
+        
+       //hitting the bridge first
+        //search thru array and check if theres a box in it, find the crate object in the array
         else if (hitsR.Length > 1 && (hitsR[1].collider.gameObject.CompareTag("Crate") || hitsR[1].collider.gameObject.CompareTag("Metal Box")))
         {
             sprite.flipX = false;
-        } else {
+        } 
+        /*else {
             sprite.flipX = false;
-        }
+        }*/
     }
 }
 

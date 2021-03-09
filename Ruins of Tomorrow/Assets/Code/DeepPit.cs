@@ -35,6 +35,8 @@ public class DeepPit : MonoBehaviour
                 
                 Debug.Log("Player collided with pit, resetting");
                 collision.gameObject.GetComponent<Animator>().SetBool("falling", true);
+                collision.gameObject.GetComponent<Player>().transform.position = transform.position;
+                collision.gameObject.GetComponent<Player>().speed = 0;
                 audioSource.PlayOneShot(playerFell);
                 StartCoroutine("ResetLevelCo");
             }
