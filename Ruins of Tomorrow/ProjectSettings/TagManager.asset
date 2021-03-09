@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - Metal Box
   - Music
+  - UI
   layers:
   - Default
   - TransparentFX
