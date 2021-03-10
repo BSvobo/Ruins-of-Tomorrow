@@ -18,10 +18,8 @@ public class Laser : MonoBehaviour
     
     //audio
     public AudioSource hitAudio;
-    //public AudioSource buzzing;
     public AudioClip hitPlayer;
-    public AudioSource parentAudio;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +27,6 @@ public class Laser : MonoBehaviour
         l = gameObject.GetComponent<LineRenderer>();
         gun = transform.position;
         _timeable = gameObject.GetComponent<Timeable>();
-        parentAudio = gameObject.transform.parent.GetComponentInParent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -75,7 +72,6 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag("Player"))
         {
             hit.collider.GetComponent<Animator>().SetBool("dying", true);
-            hit.collider.GetComponent<Player>().speed = 0;
             if (!hitAudio.isPlaying)
             {
                 hitAudio.PlayOneShot(hitPlayer);

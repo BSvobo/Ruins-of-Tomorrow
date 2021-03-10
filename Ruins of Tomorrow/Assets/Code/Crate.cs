@@ -42,7 +42,6 @@ public class Crate : MonoBehaviour
             {
                 audioSource.Play();
             }
-            
         }
 
         if (sprite.color.r < .39) //change back to .3f
@@ -54,13 +53,11 @@ public class Crate : MonoBehaviour
                 Instantiate(FireAnim, _transform.position + slightlyUp, Quaternion.identity);
                 Debug.Log("Instatiating fire animation");
             }
-
         }
         if (sprite.color.r < .3f)
         {
             destroy();
         }
-
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -73,16 +70,8 @@ public class Crate : MonoBehaviour
                 _rb.velocity = collision.rigidbody.velocity;
 
             }
-        }  
-    }
-
-    /*void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-
         }
-    }*/
+    }
 
     void OnTriggerStay2D(Collider2D col)
     {

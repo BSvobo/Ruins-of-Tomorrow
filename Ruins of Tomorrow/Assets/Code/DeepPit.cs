@@ -35,17 +35,12 @@ public class DeepPit : MonoBehaviour
                 
                 Debug.Log("Player collided with pit, resetting");
                 collision.gameObject.GetComponent<Animator>().SetBool("falling", true);
-                collision.gameObject.GetComponent<Player>().transform.position = transform.position;
-                collision.gameObject.GetComponent<Player>().speed = 0;
+                collision.gameObject.transform.position = transform.position;
                 audioSource.PlayOneShot(playerFell);
                 StartCoroutine("ResetLevelCo");
             }
         }
-        else if (collision.gameObject.CompareTag("Crate") && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
-        {
-            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
-        }
-        else if (collision.gameObject.CompareTag("Metal Box") && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge")
+        else if ((collision.gameObject.CompareTag("Crate") || (collision.gameObject.CompareTag("Metal Box")) && this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "pitSpriteWithBridge"))
         {
             Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
         }

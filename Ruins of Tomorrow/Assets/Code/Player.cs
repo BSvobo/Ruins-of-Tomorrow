@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mail;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Object = UnityEngine.Object;
 
 public class Player : MonoBehaviour
 {
@@ -69,11 +72,11 @@ public class Player : MonoBehaviour
             //Make speed slower when pushing/pulling crate
             if (pushing)
             {
-                speed = normalSpeed * .5f;
+               
             }
             else
             {
-                speed = normalSpeed;
+                
             }
 
             //Toggle Clock Rock if we're in the range to do so
@@ -113,6 +116,20 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        if (pushing)
+        {
+            speed = normalSpeed * .5f;
+        }
+        else if (animator.GetBool("dying") || animator.GetBool("falling"))
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = normalSpeed;
+            
+        }
+
         if (_dir == direction.left)
         {
             _rb.velocity = Vector2.left * speed;
@@ -142,6 +159,7 @@ public class Player : MonoBehaviour
             animator.SetBool("walkingR", false);
             animator.SetBool("walkingL", false);
             pushPull();
+            
         }
         else
         {
@@ -257,39 +275,7 @@ public class Player : MonoBehaviour
         Destroy(thingToDestroy);
     }
 
-
-    /*void ClockRock()
-    {
-        var cast = new Vector2(1,0);
-        if (_dir == direction.left)
-        {
-            cast = new Vector2(-1, 0);
-        }
-        else if (_dir == direction.right)
-        {
-            cast = new Vector2(1, 0);
-        }
-        else if (_dir == direction.up)
-        {
-            cast = new Vector2(0, 1);
-        }
-        else if (_dir == direction.down)
-        {
-            cast = new Vector2(0, -1);
-        }
-        
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position,cast,.5f);
-        if (hits.Length > 1)
-        {
-            RaycastHit2D hit = hits[1];
-            if (hit.collider.CompareTag("Clock Rock"))
-            {
-                hit.collider.GetComponent<ChangeTime>().sendThemBack();
-            }
-        }
-    }*/
-
-    public void pushPull()
+    private void pushPull()
     {
         animator.SetBool("pushing", true);    
         var origin = transform.position;
@@ -298,28 +284,34 @@ public class Player : MonoBehaviour
         RaycastHit2D[] hitsL = Physics2D.RaycastAll(origin,Vector2.left,.5f);
         RaycastHit2D[] hitsR = Physics2D.RaycastAll(origin,Vector2.right,.5f);
 
-        if (hitsU.Length > 1 && (hitsU[1].collider.gameObject.CompareTag("Crate") || hitsU[1].collider.gameObject.CompareTag("Metal Box")))
+        if (FindCrate(hitsU))
         {
             animator.SetBool("up",true);
         }
-        else if (hitsD.Length > 1 && (hitsD[1].collider.gameObject.CompareTag("Crate") || hitsD[1].collider.gameObject.CompareTag("Metal Box")))
+        else if (FindCrate(hitsD))
         {
             animator.SetBool("down",true);
         }
-        else if (hitsL.Length > 1 && (hitsL[1].collider.gameObject.CompareTag("Crate")|| hitsL[1].collider.gameObject.CompareTag("Metal Box")))
+        else if (FindCrate(hitsL))
         {
             sprite.flipX = true;
         }
-        
-       //hitting the bridge first
-        //search thru array and check if theres a box in it, find the crate object in the array
-        else if (hitsR.Length > 1 && (hitsR[1].collider.gameObject.CompareTag("Crate") || hitsR[1].collider.gameObject.CompareTag("Metal Box")))
+        else if (FindCrate(hitsR))
         {
             sprite.flipX = false;
-        } 
-        /*else {
-            sprite.flipX = false;
-        }*/
+        }
+    }
+
+    private bool FindCrate(RaycastHit2D[] hitsList)
+    {
+        for (int i = 0; i < hitsList.Length; i++)
+        {
+            if (hitsList[i].collider.gameObject.CompareTag("Crate") || hitsList[i].collider.gameObject.CompareTag("Metal Box"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
