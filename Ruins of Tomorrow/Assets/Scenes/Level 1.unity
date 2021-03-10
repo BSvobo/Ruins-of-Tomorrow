@@ -5004,9 +5004,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
+        type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
       value: I should be careful, though. I don't know what else is in there. I should
         be ready to hold SPACE to move around the crates.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271634381044892672, guid: 5b20e128e3a055449a316bbcd6b63fdc,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: I can also use ESC to pause, if I need a break.
       objectReference: {fileID: 0}
     - target: {fileID: 5271634381044892673, guid: 5b20e128e3a055449a316bbcd6b63fdc,
         type: 3}
