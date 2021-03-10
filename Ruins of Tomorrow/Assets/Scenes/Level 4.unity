@@ -2836,6 +2836,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2565109213922737373, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_Text
+      value: Press Space to Continue >>
+      objectReference: {fileID: 0}
     - target: {fileID: 2565109214588072034, guid: 5db06ffba9368b445832f92fa79ac9d3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2845,6 +2850,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565109214588072035, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 190.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565109214588072035, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565109214588072035, guid: 5db06ffba9368b445832f92fa79ac9d3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 252.0274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db06ffba9368b445832f92fa79ac9d3, type: 3}
