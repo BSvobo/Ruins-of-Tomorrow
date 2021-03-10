@@ -225,6 +225,10 @@ public class Player : MonoBehaviour
         {
             audioSource.Stop();
         }
+        if (inPauseMenu)
+        {
+            audioSource.Stop();
+        }
     }
     void OnCollisionStay2D(Collision2D collision)
     {
