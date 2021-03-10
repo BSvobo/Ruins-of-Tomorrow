@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
             isWalking = false;
         }
 
-        if (isWalking)
+        if (isWalking & !inPauseMenu)
         {
             if (!audioSource.isPlaying)
             {
